@@ -56,6 +56,36 @@ class Settings extends Base {
 					// 'color'		=> '#4c3f93',
 					'sticky'	=> false,
 					'fields'    => [
+						'main_product' => [
+							'id'      => 'main_product',
+							'label'     => __( 'Main Product', 'checkout-designer' ),
+							'type'      => 'select',
+							'desc'      => __( 'Select a main product.', 'checkout-designer' ),
+							'options'   => Helper::get_posts( ['post_type' => 'product', 'posts_per_page' => -1] ),
+							'disabled'  => false, // true|false
+							'multiple'  => false, // true|false
+						],
+						'addon_product' => [
+							'id'      => 'addon_product',
+							'label'     => __( 'Add-on Product', 'checkout-designer' ),
+							'type'      => 'select',
+							'desc'      => __( 'Select a Add-on Product.', 'checkout-designer' ),
+							'options'   => Helper::get_posts( ['post_type' => 'product', 'posts_per_page' => -1] ),
+							'disabled'  => false, // true|false
+							'multiple'  => false, // true|false
+						],
+						'primary_color' => [
+							'id'      => 'primary_color',
+							'label'     => __( 'Primary Color', 'checkout-designer' ),
+							'type'      => 'color',
+							'desc'      => __( 'Pick a primary color.', 'checkout-designer' ),
+						],
+						'secondary_color' => [
+							'id'      => 'secondary_color',
+							'label'     => __( 'Secondary Color', 'checkout-designer' ),
+							'type'      => 'color',
+							'desc'      => __( 'Pick a secondary color.', 'checkout-designer' ),
+						]
 						'sample_text' => [
 							'id'        => 'sample_text',
 							'label'     => __( 'Text Field', 'checkout-designer' ),
@@ -131,21 +161,6 @@ class Settings extends Base {
 							],
 							'default'   => 'item_2',
 							'disabled'  => false, // true|false
-						],
-						'sample_select' => [
-							'id'      => 'sample_select',
-							'label'     => __( 'Select Field', 'checkout-designer' ),
-							'type'      => 'select',
-							'desc'      => __( 'This is a select field.', 'checkout-designer' ),
-							// 'class'     => '',
-							'options'   => [
-								'option_1'  => 'Option One',
-								'option_2'  => 'Option Two',
-								'option_3'  => 'Option Three',
-							],
-							'default'   => 'option_2',
-							'disabled'  => false, // true|false
-							'multiple'  => false, // true|false
 						],
 						'sample_multiselect' => [
 							'id'      => 'sample_multiselect',
