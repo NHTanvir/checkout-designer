@@ -132,26 +132,14 @@ final class Plugin {
 			 * Admin facing hooks
 			 */
 			$admin = new App\Admin( $this->plugin );
-			$admin->activate( 'install' );
-			$admin->action( 'admin_footer', 'modal' );
 			$admin->action( 'plugins_loaded', 'i18n' );
 			$admin->action( 'admin_enqueue_scripts', 'enqueue_scripts' );
-			$admin->action( 'admin_footer_text', 'footer_text' );
 
 			/**
 			 * Settings related hooks
 			 */
 			$settings = new App\Settings( $this->plugin );
 			$settings->action( 'plugins_loaded', 'init_menu' );
-
-			/**
-			 * Renders different notices
-			 * 
-			 * @package Codexpert\Plugin
-			 * 
-			 * @author Codexpert <hi@codexpert.io>
-			 */
-			$notice = new Notice( $this->plugin );
 
 		else : // ! is_admin() ?
 
@@ -170,14 +158,7 @@ final class Plugin {
 			$shortcode->register( 'my_shortcode', 'my_shortcode' );
 
 		endif;
-
-		/**
-		 * Cron facing hooks
-		 */
-		$cron = new App\Cron( $this->plugin );
-		$cron->activate( 'install' );
-		$cron->deactivate( 'uninstall' );
-
+		
 		/**
 		 * Common hooks
 		 *

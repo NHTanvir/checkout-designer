@@ -41,22 +41,6 @@ class Admin extends Base {
 	}
 
 	/**
-	 * Installer. Runs once when the plugin in activated.
-	 *
-	 * @since 1.0
-	 */
-	public function install() {
-
-		if( ! get_option( 'checkout-designer_version' ) ){
-			update_option( 'checkout-designer_version', $this->version );
-		}
-		
-		if( ! get_option( 'checkout-designer_install_time' ) ){
-			update_option( 'checkout-designer_install_time', time() );
-		}
-	}
-
-	/**
 	 * Enqueue JavaScripts and stylesheets
 	 */
 	public function enqueue_scripts() {
@@ -65,12 +49,6 @@ class Admin extends Base {
 		wp_enqueue_style( $this->slug, plugins_url( "/assets/css/admin{$min}.css", Checkout_Designer ), '', $this->version, 'all' );
 
 		wp_enqueue_script( $this->slug, plugins_url( "/assets/js/admin{$min}.js", Checkout_Designer ), [ 'jquery' ], $this->version, true );
-	}
-
-	public function footer_text( $text ) {
-		if( get_current_screen()->parent_base != $this->slug ) return $text;
-
-		return sprintf( __( 'Built with %1$s by the folks at <a href="%2$s" target="_blank">Codexpert, Inc</a>.' ), '&hearts;', 'https://codexpert.io' );
 	}
 
 	public function modal() {
