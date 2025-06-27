@@ -57,10 +57,10 @@ class Front extends Base {
 		</div>';
 	}
 
-	function add_payment_method_class($classes) {
+	public function add_payment_method_class( $classes ) {
 		$selected_payment_method 		= WC()->session->get('chosen_payment_method');
 		$cyrpto_gateway               	= Helper::get_option( "checkout-designer_basic", 'crypto_gateway' );
-		if ($selected_payment_method == $cyrpto_gateway ) {
+		if ( $selected_payment_method == $cyrpto_gateway ) {
 			$classes[] = 'payment-method-crypto';
 		}
 		else{
@@ -68,4 +68,40 @@ class Front extends Base {
 		}
 		return $classes;
 	}
+
+	public function payment_gateway_icon( $icon, $gateway_id ) {
+		$crypto_gateway = Helper::get_option( 'checkout-designer_basic', 'crypto_gateway' );
+		$settings       = get_option( "woocommerce_{$gateway_id}_settings", [] );
+		$title          = isset( $settings['title'] ) ? esc_html( $settings['title'] ) : '';
+		$description    = isset( $settings['description'] ) ? esc_html( $settings['description'] ) : '';
+
+		if ( $gateway_id === $crypto_gateway ) {
+			$icon = sprintf(
+				'<img src="%1$s" data-payment="crypto" alt="Bitcoin" class="bit-coin-logo" style="margin: 0 10px !important;">
+				<div class="payment-text">%2$s<p class="payment-dis">%3$s</p></div>
+				<p class="payment-discription">
+					<img src="%4$s" alt="Clock icon">10–60 min
+				</p>',
+				esc_url( 'https://iptvutanbox.com/wp-content/uploads/2024/09/Icon-awesome-btc.png' ),
+				$title,
+				$description,
+				esc_url( 'https://iptvutanbox.com/wp-content/uploads/2024/09/Vector-15.png' )
+			);
+		} else {
+			$icon = sprintf(
+				'<img src="%1$s" data-payment="card" alt="Kortbetalning (+10%% avgift)" class="card-logo">
+				<div class="payment-text">%2$s<p class="payment-dis">%3$s</p></div>
+				<p class="payment-discription">
+					<img src="%4$s" alt="Clock icon">Direkt
+				</p>',
+				esc_url( 'https://iptvutanbox.com/wp-content/uploads/2024/09/Mastercard.png' ),
+				$title,
+				$description,
+				esc_url( 'https://iptvutanbox.com/wp-content/uploads/2024/09/Vector-14.png' )
+			);
+		}
+
+		return $icon;
+	}
+
 }

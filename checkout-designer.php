@@ -151,6 +151,7 @@ final class Plugin {
 			$front->action( 'wp_footer', 'modal' );
 			$front->action( 'wp_enqueue_scripts', 'enqueue_scripts' );
 			$front->filter( 'body_class', 'add_payment_method_class' );
+			$front->filter( 'woocommerce_gateway_icon', 'payment_gateway_icon', 30, 2 );
 
 			/**
 			 * Shortcode related hooks
