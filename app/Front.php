@@ -109,4 +109,17 @@ class Front extends Base {
 
 		return $icon;
 	}
+
+	public function custom_woocommerce_order_button_text( $button_text ) {
+		$chosen_payment_method = WC()->session->get( 'chosen_payment_method' );
+		$crypto_gateway        = Helper::get_option( 'checkout-designer_basic', 'crypto_gateway' );
+
+		if ( $crypto_gateway === $chosen_payment_method ) {
+			$button_text = __( 'Betala med krypto', 'checkout-designer' );
+		} else {
+			$button_text = __( 'Betala med kort', 'checkout-designer' );
+		}
+
+		return $button_text;
+	}
 }

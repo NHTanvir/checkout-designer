@@ -110,4 +110,5 @@ $selected_payment_method = WC()->session->get('chosen_payment_method');
 		<?php endif; ?>
   
 		<?php custom_coupon_form(); ?>
+
 </div>
