@@ -39,9 +39,9 @@ class Front extends Base {
 	public function enqueue_scripts() {
 		$min = defined( 'Checkout_Designer_DEBUG' ) && Checkout_Designer_DEBUG ? '' : '.min';
 
-		wp_enqueue_style( $this->slug, plugins_url( "/assets/css/front{$min}.css", Checkout_Designer ), '', $this->version, 'all' );
+		wp_enqueue_style( $this->slug, plugins_url( "/assets/css/front{$min}.css", Checkout_Designer ), '', time(), 'all' );
 
-		wp_enqueue_script( $this->slug, plugins_url( "/assets/js/front{$min}.js", Checkout_Designer ), [ 'jquery' ], $this->version, true );
+		wp_enqueue_script( $this->slug, plugins_url( "/assets/js/front{$min}.js", Checkout_Designer ), [ 'jquery' ], time(), true );
 		
 		$localized = [
 			'ajaxurl'	=> admin_url( 'admin-ajax.php' ),

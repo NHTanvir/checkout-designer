@@ -14,3 +14,17 @@
 #checkout-designer-modal-loader {
     position: absolute;
 }
+div#customer_details{
+    display: none!important;
+}
+.woocommerce-checkout header.fl-post-header, .woocommerce-checkout h3#order_review_heading{
+    display: none;
+}
+.checkout-columns {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+#order_review.woocommerce-checkout-review-order {
+    display: none !important;
+}

@@ -4,7 +4,7 @@
  */
 namespace Codexpert\CheckoutDesigner\App;
 use Codexpert\Plugin\Base;
-
+use Codexpert\CheckoutDesigner\Helper;
 /**
  * if accessed directly, exit.
  */
@@ -39,5 +39,12 @@ class Common extends Base {
 				WC()->session->set( 'chosen_payment_method', $first_gateway->id );
 			}
 		}
+	}
+	public function custom_checkout_columns_start() {
+		echo Helper::get_template( 'left', 'views/checkout' );
+	}
+
+	public function custom_checkout_columns_end() {
+		echo Helper::get_template( 'right', 'views/checkout' );
 	}
 }
