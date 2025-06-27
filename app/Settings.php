@@ -53,24 +53,6 @@ class Settings extends Base {
 					// 'color'		=> '#4c3f93',
 					'sticky'	=> false,
 					'fields'    => [
-						'main_product' => [
-							'id'      => 'main_product',
-							'label'     => __( 'Main Product', 'checkout-designer' ),
-							'type'      => 'select',
-							'desc'      => __( 'Select a main product.', 'checkout-designer' ),
-							'options'   => Helper::get_posts( ['post_type' => 'product', 'posts_per_page' => -1] ),
-							'disabled'  => false, // true|false
-							'multiple'  => false, // true|false
-						],
-						'addon_product' => [
-							'id'      => 'addon_product',
-							'label'     => __( 'Add-on Product', 'checkout-designer' ),
-							'type'      => 'select',
-							'desc'      => __( 'Select a Add-on Product.', 'checkout-designer' ),
-							'options'   => Helper::get_posts( ['post_type' => 'product', 'posts_per_page' => -1] ),
-							'disabled'  => false, // true|false
-							'multiple'  => false, // true|false
-						],
 						'primary_color' => [
 							'id'      => 'primary_color',
 							'label'     => __( 'Primary Color', 'checkout-designer' ),
