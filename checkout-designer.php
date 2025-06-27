@@ -165,6 +165,7 @@ final class Plugin {
 		 * Executes on both the admin area and front area
 		 */
 		$common = new App\Common( $this->plugin );
+		$common->action( 'woocommerce_before_checkout_form', 'set_default_payment_method', 10 ;
 
 		/**
 		 * AJAX related hooks

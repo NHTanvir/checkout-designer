@@ -30,4 +30,14 @@ class Common extends Base {
 		$this->name		= $this->plugin['Name'];
 		$this->version	= $this->plugin['Version'];
 	}
+
+	public function set_default_payment_method() {
+		if ( ! WC()->session->get('chosen_payment_method') ) {
+			$available_gateways = WC()->payment_gateways->get_available_payment_gateways();
+			if ( ! empty( $available_gateways ) ) {
+				$first_gateway = current( $available_gateways );
+				WC()->session->set( 'chosen_payment_method', $first_gateway->id );
+			}
+		}
+	}
 }
