@@ -177,6 +177,10 @@ final class Plugin {
 		 * AJAX related hooks
 		 */
 		$ajax = new App\AJAX( $this->plugin );
+		$ajax->all( 'update_cart_totals_on_payment_method_change', 'update_cart_totals_on_payment_method_change' );
+		$ajax->all( 'update_table_on_payment_method_change', 'update_table_on_payment_method_change' );
+		// $ajax->all( 'ajax_remove_cart_item', 'remove_cart_item' );
+		$ajax->all( 'woocommerce_update_cart_item_qty', 'woocommerce_update_cart_item_qty' );
 	}
 
 	/**
