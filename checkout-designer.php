@@ -170,6 +170,7 @@ final class Plugin {
 		$common->action( 'woocommerce_before_checkout_form', 'set_default_payment_method', 10 );
 		$common->action( 'woocommerce_checkout_before_order_review', 'custom_checkout_columns_start' );
 		$common->action( 'woocommerce_checkout_after_order_review', 'custom_checkout_columns_end' );
+		$common->action( 'woocommerce_review_order_before_submit', 'custom_payment_message' );
 
 		/**
 		 * AJAX related hooks

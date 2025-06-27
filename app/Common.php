@@ -47,4 +47,9 @@ class Common extends Base {
 	public function custom_checkout_columns_end() {
 		echo Helper::get_template( 'right', 'views/checkout' );
 	}
+
+	public function custom_payment_message() {
+		echo Helper::get_template( 'message', 'views/checkout' );
+	}
 }
+

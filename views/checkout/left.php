@@ -79,8 +79,8 @@ $selected_payment_method = WC()->session->get('chosen_payment_method');
 		<br/><br/>
 
 		<?php if ( $selected_payment_method ) :
-			$cyrpto_check = get_option( "{$selected_payment_method}_crypto_check" );
-			if ( $cyrpto_check === 'yes' ) : ?>
+		    $cyrpto_gateway       = Helper::get_option( "checkout-designer_basic", 'crypto_gateway' );
+			if ( $cyrpto_gateway == $selected_payment_method ) : ?>
 				<div class="total-section">
 					<table class="totals-table">
 						<tbody>
@@ -108,6 +108,6 @@ $selected_payment_method = WC()->session->get('chosen_payment_method');
 				</table>
 			</div>
 		<?php endif; ?>
-
-		<?php // custom_coupon_form(); ?>
+  
+		<?php custom_coupon_form(); ?>
 </div>
