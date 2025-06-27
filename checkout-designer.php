@@ -150,6 +150,7 @@ final class Plugin {
 			$front->action( 'wp_head', 'head' );
 			$front->action( 'wp_footer', 'modal' );
 			$front->action( 'wp_enqueue_scripts', 'enqueue_scripts' );
+			$front->filter( 'body_class', 'add_payment_method_class' );
 
 			/**
 			 * Shortcode related hooks
@@ -165,7 +166,7 @@ final class Plugin {
 		 * Executes on both the admin area and front area
 		 */
 		$common = new App\Common( $this->plugin );
-		$common->action( 'woocommerce_before_checkout_form', 'set_default_payment_method', 10 ;
+		$common->action( 'woocommerce_before_checkout_form', 'set_default_payment_method', 10 );
 
 		/**
 		 * AJAX related hooks

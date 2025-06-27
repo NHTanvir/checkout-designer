@@ -56,4 +56,16 @@ class Front extends Base {
 			<img id="checkout-designer-modal-loader" src="' . esc_attr( Checkout_Designer_ASSET . '/img/loader.gif' ) . '" />
 		</div>';
 	}
+
+	function add_payment_method_class($classes) {
+		$selected_payment_method 		= WC()->session->get('chosen_payment_method');
+		$cyrpto_gateway               	= Helper::get_option( "checkout-designer_basic", 'crypto_gateway' );
+		if ($selected_payment_method == $cyrpto_gateway ) {
+			$classes[] = 'payment-method-crypto';
+		}
+		else{
+			$classes[] = 'payment-method-' . esc_attr( $selected_payment_method );
+		}
+		return $classes;
+	}
 }
