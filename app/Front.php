@@ -77,31 +77,36 @@ class Front extends Base {
 
 		if ( $gateway_id === $crypto_gateway ) {
 			$icon = sprintf(
-				'<img src="%1$s" data-payment="crypto" alt="Bitcoin" class="bit-coin-logo" style="margin: 0 10px !important;">
-				<div class="payment-text">%2$s<p class="payment-dis">%3$s</p></div>
+				'<img src="%1$s" data-payment="crypto" alt="%2$s" class="bit-coin-logo" style="margin: 0 10px !important;">
+				<div class="payment-text">%3$s<p class="payment-dis">%4$s</p></div>
 				<p class="payment-discription">
-					<img src="%4$s" alt="Clock icon">10–60 min
+					<img src="%5$s" alt="%6$s">%7$s
 				</p>',
 				esc_url( 'https://iptvutanbox.com/wp-content/uploads/2024/09/Icon-awesome-btc.png' ),
+				esc_attr__( 'Bitcoin', 'checkout-designer' ),
 				$title,
 				$description,
-				esc_url( 'https://iptvutanbox.com/wp-content/uploads/2024/09/Vector-15.png' )
+				esc_url( 'https://iptvutanbox.com/wp-content/uploads/2024/09/Vector-15.png' ),
+				esc_attr__( 'Clock icon', 'checkout-designer' ),
+				esc_html__( '10–60 min', 'checkout-designer' )
 			);
 		} else {
 			$icon = sprintf(
-				'<img src="%1$s" data-payment="card" alt="Kortbetalning (+10%% avgift)" class="card-logo">
-				<div class="payment-text">%2$s<p class="payment-dis">%3$s</p></div>
+				'<img src="%1$s" data-payment="card" alt="%2$s" class="card-logo">
+				<div class="payment-text">%3$s<p class="payment-dis">%4$s</p></div>
 				<p class="payment-discription">
-					<img src="%4$s" alt="Clock icon">Direkt
+					<img src="%5$s" alt="%6$s">%7$s
 				</p>',
 				esc_url( 'https://iptvutanbox.com/wp-content/uploads/2024/09/Mastercard.png' ),
+				esc_attr__( 'Kortbetalning (+10% avgift)', 'checkout-designer' ),
 				$title,
 				$description,
-				esc_url( 'https://iptvutanbox.com/wp-content/uploads/2024/09/Vector-14.png' )
+				esc_url( 'https://iptvutanbox.com/wp-content/uploads/2024/09/Vector-14.png' ),
+				esc_attr__( 'Clock icon', 'checkout-designer' ),
+				esc_html__( 'Direkt', 'checkout-designer' )
 			);
 		}
 
 		return $icon;
 	}
-
 }
