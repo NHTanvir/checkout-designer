@@ -115,4 +115,28 @@ class AJAX extends Base {
 
 		wp_die();
 	}
+
+	public function add_addon_to_cart() {
+		if (!isset($_POST['product_id'])) {
+			wp_send_json_error('Missing product ID');
+		}
+
+		$product_id   = intval($_POST['product_id']);
+		$addon_option = sanitize_text_field($_POST['addon_option'] ?? '');
+		$mac_address  = sanitize_text_field($_POST['mac_address'] ?? '');
+		$quantity     = 1;
+
+		$cart_item_key = WC()->cart->add_to_cart($product_id, $quantity);
+
+		if ($cart_item_key) {
+			WC()->cart->cart_contents[$cart_item_key]['addon_option'] = $addon_option;
+			WC()->cart->cart_contents[$cart_item_key]['mac_address'] = $mac_address;
+
+			wp_send_json_success(['cart_item_key' => $cart_item_key]);
+		} else {
+			wp_send_json_error('Failed to add product to cart');
+		}
+
+		wp_die();
+	}
 }

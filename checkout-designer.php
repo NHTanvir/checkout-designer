@@ -180,6 +180,7 @@ final class Plugin {
 		$ajax->all( 'update_cart_totals_on_payment_method_change', 'update_cart_totals_on_payment_method_change' );
 		$ajax->all( 'update_table_on_payment_method_change', 'update_table_on_payment_method_change' );
 		$ajax->all( 'woocommerce_update_cart_item_qty', 'woocommerce_update_cart_item_qty' );
+		$ajax->all( 'add_addon_to_cart', 'add_addon_to_cart' );
 	}
 
 	/**

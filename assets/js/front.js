@@ -187,37 +187,35 @@ jQuery(document).ready(function ($) {
     });
 
     $(".addon-option-select").on("change", function () {
-        toggleMacAddressInput(); // Toggle MAC address input visibility on change
+        toggleMacAddressInput();
     });
+	
+	$(".add-addon-to-cart").on("click", function (e) {
+		if (!validateMacAddress()) {
+			e.preventDefault();
+			return;
+		}
+		cd_modal(true);
 
-    $(".add-addon-to-cart").on("click", function (e) {
-        if (!validateMacAddress()) {
-            e.preventDefault(); // Prevent adding to cart if MAC address is missing for "förnyelse"
-            return;
-        }
+		var product_id = $('.addon-variation-select').val();
+		var addon_option = $(".addon-option-select").val();
+		var mac_address = $(".addon-mac-address").val();
 
-        cd_modal(true); // Show modal
-        var product_id = $(this).data("product_id");
-        var variation_id = $(".addon-variation-select").val();
-        var addon_option = $(".addon-option-select").val();
-        var mac_address = $(".addon-mac-address").val();
-
-        $.ajax({
-            url: wc_add_to_cart_params.ajax_url,
-            type: "POST",
-            data: {
-                action: "add_addon_to_cart",
-                product_id: product_id,
-                variation_id: variation_id,
-                addon_option: addon_option,
-                mac_address: mac_address,
-            },
-            success: function (response) {
-                $(".addon-mac-address").val("");
-                if (response.success) {
-                    update_totals_based_on_payment_method();
-                }
-            },
-        });
-    });
+		$.ajax({
+			url: wc_add_to_cart_params.ajax_url,
+			type: "POST",
+			data: {
+				action: "add_addon_to_cart",
+				product_id: product_id,
+				addon_option: addon_option,
+				mac_address: mac_address,
+			},
+			success: function (response) {
+				$(".addon-mac-address").val("");
+				if (response.success) {
+					update_totals_based_on_payment_method();
+				}
+			},
+		});
+	});
 });
