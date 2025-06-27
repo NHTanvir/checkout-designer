@@ -86,7 +86,7 @@ jQuery(document).ready(function ($) {
         }
 
         $.ajax({
-            url: wc_checkout_params.ajax_url,
+			url: Checkout_Designer.ajaxurl,
             type: "POST",
             data: {
                 action: "update_cart_totals_on_payment_method_change",
@@ -101,7 +101,7 @@ jQuery(document).ready(function ($) {
         });
 
         $.ajax({
-            url: wc_checkout_params.ajax_url,
+			url: Checkout_Designer.ajaxurl,
             type: "POST",
             data: {
                 action: "update_table_on_payment_method_change",
@@ -136,7 +136,7 @@ jQuery(document).ready(function ($) {
 
 		$.ajax({
 			type: 'POST',
-			url: wc_checkout_params.ajax_url,
+			url: Checkout_Designer.ajaxurl,
 			data: {
 				action: 'woocommerce_update_cart_item_qty',
 				cart_item_key: cartItemKey,
@@ -202,7 +202,7 @@ jQuery(document).ready(function ($) {
 		var mac_address = $(".addon-mac-address").val();
 
 		$.ajax({
-			url: wc_add_to_cart_params.ajax_url,
+			url: Checkout_Designer.ajaxurl,
 			type: "POST",
 			data: {
 				action: "add_addon_to_cart",
