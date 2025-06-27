@@ -7,39 +7,37 @@ $selected_payment_method = WC()->session->get('chosen_payment_method');
 	<div class="checkout-left">
 		<h3><?php esc_html_e( 'Varukorg', 'checkout-designer' ); ?></h3>
 		<div class="table-wrapper">
-			<table class="product-table">
-				<thead>
-					<tr>
-						<th><?php esc_html_e( 'Produkt', 'checkout-designer' ); ?></th>
-						<th><?php esc_html_e( 'Quantity', 'checkout-designer' ); ?></th>
-						<th><?php esc_html_e( 'Pris i SEK', 'checkout-designer' ); ?></th>
-						<th></th>
-					</tr>
-				</thead>
-				<tbody>
-					<?php foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) :
-						$_product     = $cart_item['data'];
-						$price        = $_product->get_price();
-						$product_name = $_product->get_name();
-						$product_id   = $cart_item['product_id'];
-					?>
-						<tr>
-							<td><?php echo esc_html( $product_name ); ?></td>
-							<td>
-								<div class="quantity">
-									<input type="number" class="qty-input" name="cart[<?php echo esc_attr( $cart_item_key ); ?>][qty]" value="<?php echo esc_attr( $cart_item['quantity'] ); ?>" min="1">
-								</div>
-							</td>
-							<td><?php echo wc_price( $price ); ?></td>
-							<td>
-								<button type="button" class="remove-cart" data-cart-item-key="<?php echo esc_attr( $cart_item_key ); ?>">
-									<img src="<?php echo esc_url( 'https://iptvutanbox.com/wp-content/uploads/2024/08/Group-63.svg' ); ?>" alt="">
-								</button>
-							</td>
-						</tr>
-					<?php endforeach; ?>
-				</tbody>
-			</table>
+            <table class="product-table">
+                <thead>
+                    <tr>
+                        <th><?php esc_html_e( 'Produkt', 'checkout-designer' ); ?></th>
+                        <th><?php esc_html_e( 'Pris i SEK', 'checkout-designer' ); ?></th>
+                        <th><?php esc_html_e( 'Antal', 'checkout-designer' ); ?></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) :
+                        $_product     = $cart_item['data'];
+                        $quantity     = $cart_item['quantity'];
+                        $price        = $_product->get_price() * $quantity;
+                        $product_name = $_product->get_name();
+       
+                    ?>
+                        <tr>
+                            <td><?php echo esc_html( $product_name ); ?></td>
+                            <td><?php echo wc_price( $price ); ?></td>
+                            <td>
+                                <div class="quantity-control" data-cart-item-key="<?php echo esc_attr( $cart_item_key ); ?>">
+                                    <button type="button" class="qty-decrease">-</button>
+                                    <span class="qty-display"><?php echo esc_html( $quantity ); ?></span>
+                                    <button type="button" class="qty-increase">+</button>
+                                </div>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+
 		</div>
 
 		<div class="addons-section">

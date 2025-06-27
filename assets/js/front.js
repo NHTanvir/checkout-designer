@@ -118,28 +118,36 @@ jQuery(document).ready(function ($) {
     }
 
     // Update cart on quantity change
-    $(document).on("change", ".qty-input", function () {
-        cd_modal(true);
-        var qty = $(this).val();
-        var cartItemKey = $(this)
-            .attr("name")
-            .match(/\[(.*?)\]/)[1]; // Extract the cart item key
+   $(document).on('click', '.qty-increase, .qty-decrease', function () {
+		cd_modal(true);
 
-        var data = {
-            action: "woocommerce_update_cart_item_qty",
-            cart_item_key: cartItemKey,
-            quantity: qty,
-        };
+		var control = $(this).closest('.quantity-control');
+		var display = control.find('.qty-display');
+		var cartItemKey = control.data('cart-item-key');
+		var currentQty = parseInt(display.text()) || 1;
 
-        $.ajax({
-            type: "POST",
-            url: wc_checkout_params.ajax_url,
-            data: data,
-            success: function (response) {
-                update_totals_based_on_payment_method();
-            },
-        });
-    });
+		if ($(this).hasClass('qty-increase')) {
+			currentQty++;
+		} else if ($(this).hasClass('qty-decrease') && currentQty > 1) {
+			currentQty--;
+		}
+
+		display.text(currentQty);
+
+		$.ajax({
+			type: 'POST',
+			url: wc_checkout_params.ajax_url,
+			data: {
+				action: 'woocommerce_update_cart_item_qty',
+				cart_item_key: cartItemKey,
+				quantity: currentQty,
+			},
+			success: function (response) {
+				update_totals_based_on_payment_method();
+			},
+		});
+	});
+
     // Function to toggle MAC address input visibility
     function toggleMacAddressInput() {
         var selectedOption = $(".addon-option-select").val();
@@ -206,24 +214,6 @@ jQuery(document).ready(function ($) {
             },
             success: function (response) {
                 $(".addon-mac-address").val("");
-                if (response.success) {
-                    update_totals_based_on_payment_method();
-                }
-            },
-        });
-    });
-
-    $(document).on("click", ".remove-cart", function () {
-        var cartItemKey = $(this).data("cart-item-key");
-        cd_modal(true);
-        $.ajax({
-            url: wc_add_to_cart_params.ajax_url,
-            type: "POST",
-            data: {
-                action: "remove_cart_item",
-                cart_item_key: cartItemKey,
-            },
-            success: function (response) {
                 if (response.success) {
                     update_totals_based_on_payment_method();
                 }
