@@ -2,9 +2,9 @@
 /**
  * Plugin Name: Checkout Designer
  * Description: Checkout designer
- * Plugin URI: https://codexpert.io
- * Author: Codexpert, Inc
- * Author URI: https://codexpert.io
+ * Plugin URI: https://goodtechies.com
+ * Author: Goodtechies
+ * Author URI: https://goodtechies.com
  * Version: 0.9
  * Text Domain: checkout-designer
  * Domain Path: /languages
