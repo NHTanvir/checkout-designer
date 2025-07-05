@@ -58,5 +58,20 @@ class Common extends Base {
 			exit;
 		}
 	}
+
+	public function make_all_checkout_fields_optional ($fields ) {
+		foreach ( $fields as $fieldset_key => $fieldset ) {
+			foreach ( $fieldset as $field_key => $field ) {
+				$fields[$fieldset_key][$field_key]['required'] = false;
+			}
+		}
+		return $fields;
+	}
+
+	public function remove_terms_error( $data, $errors ) {
+		if ( $errors->get_error_code('terms') ) {
+			$errors->remove('terms');
+		}
+	}
 }
 

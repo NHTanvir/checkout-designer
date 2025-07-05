@@ -173,6 +173,8 @@ final class Plugin {
 		$common->action( 'woocommerce_checkout_after_order_review', 'custom_checkout_columns_end' );
 		$common->action( 'woocommerce_review_order_before_submit', 'custom_payment_message' );
 		$common->action( 'template_redirect', 'redirect_cart_to_checkout' );
+		$common->filter( 'woocommerce_checkout_fields', 'make_all_checkout_fields_optional' );
+		$common->action( 'woocommerce_after_checkout_validation', 'remove_terms_error', 10, 2 );
 
 		/**
 		 * AJAX related hooks
