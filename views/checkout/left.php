@@ -44,7 +44,7 @@ $selected_payment_method = WC()->session->get('chosen_payment_method');
 			<div class="addons-head">
 				<h6 class="method"><?php esc_html_e( 'Valfritt Extra konton', 'checkout-designer' ); ?></h6>
 				<p>
-					<img src="<?php echo esc_url( 'https://iptvutanbox.com/wp-content/uploads/2024/08/info-1.svg' ); ?>" alt="">
+					<img src="<?php echo esc_url( 'https://iptvking.co/wp-content/plugins/checkout-designer/assets/img/warning.png' ); ?>" alt="">
 					<?php esc_html_e( 'Du kan lägga till hur många extra konton du vill.', 'checkout-designer' ); ?>
 				</p>
 			</div>

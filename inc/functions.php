@@ -21,6 +21,7 @@ endif;
 remove_action( 'woocommerce_checkout_order_review', 'woocommerce_checkout_order_review', 30 );
 remove_action( 'woocommerce_checkout_order_review', 'woocommerce_checkout_payment', 30 );
 remove_action( 'woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form', 10 ); 
+remove_action('woocommerce_checkout_process', 'woocommerce_checkout_terms_and_conditions_validation', 9999);
 
 if( ! function_exists( 'cd_site_url' ) ) :
 function cd_site_url() {
