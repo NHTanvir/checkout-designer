@@ -172,6 +172,7 @@ final class Plugin {
 		$common->action( 'woocommerce_checkout_before_order_review', 'custom_checkout_columns_start' );
 		$common->action( 'woocommerce_checkout_after_order_review', 'custom_checkout_columns_end' );
 		$common->action( 'woocommerce_review_order_before_submit', 'custom_payment_message' );
+		$common->action( 'template_redirect', 'redirect_cart_to_checkout' );
 
 		/**
 		 * AJAX related hooks

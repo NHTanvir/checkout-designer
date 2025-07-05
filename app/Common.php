@@ -51,5 +51,12 @@ class Common extends Base {
 	public function custom_payment_message() {
 		echo Helper::get_template( 'message', 'views/checkout' );
 	}
+
+	public function redirect_cart_to_checkout() {
+		if ( is_cart() ) {
+			wp_redirect( wc_get_checkout_url() );
+			exit;
+		}
+	}
 }
 
