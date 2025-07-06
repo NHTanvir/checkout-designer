@@ -29,7 +29,9 @@ $selected_payment_method = WC()->session->get('chosen_payment_method');
                             <td>
                                 <div class="quantity-control" data-cart-item-key="<?php echo esc_attr( $cart_item_key ); ?>">
                                     <button type="button" class="qty-decrease">-</button>
-                                    <span class="qty-display"><?php echo esc_html( $quantity ); ?></span>
+									<span class="qty-display">
+										<?php echo esc_html( str_pad( $quantity, 2, '0', STR_PAD_LEFT ) ); ?>
+									</span>
                                     <button type="button" class="qty-increase">+</button>
                                 </div>
                             </td>

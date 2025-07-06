@@ -90,7 +90,7 @@ class AJAX extends Base {
 				echo '<td>';
 					echo '<div class="quantity-control" data-cart-item-key="' . esc_attr($cart_item_key) . '">';
 						echo '<button type="button" class="qty-decrease">-</button>';
-						echo '<span class="qty-display">' . esc_html($quantity) . '</span>';
+						echo '<span class="qty-display">' . esc_html( str_pad( $quantity, 2, '0', STR_PAD_LEFT ) ) . '</span>';
 						echo '<button type="button" class="qty-increase">+</button>';
 					echo '</div>';
 				echo '</td>';

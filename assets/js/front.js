@@ -118,36 +118,36 @@ jQuery(document).ready(function ($) {
     }
 
     // Update cart on quantity change
-   $(document).on('click', '.qty-increase, .qty-decrease', function () {
-		cd_modal(true);
-
-		var control = $(this).closest('.quantity-control');
-		var display = control.find('.qty-display');
-		var cartItemKey = control.data('cart-item-key');
-		var currentQty = parseInt(display.text()) || 1;
-
-		if ($(this).hasClass('qty-increase')) {
-			currentQty++;
-		} else if ($(this).hasClass('qty-decrease') && currentQty > 1) {
-			currentQty--;
-		}
-
-		display.text(currentQty);
-
-		$.ajax({
-			type: 'POST',
-			url: Checkout_Designer.ajaxurl,
-			data: {
-				action: 'woocommerce_update_cart_item_qty',
-				cart_item_key: cartItemKey,
-				quantity: currentQty,
-			},
-			success: function (response) {
-				update_totals_based_on_payment_method();
-			},
-		});
-	});
-
+    $(document).on('click', '.qty-increase, .qty-decrease', function () {
+        cd_modal(true);
+    
+        var control = $(this).closest('.quantity-control');
+        var display = control.find('.qty-display');
+        var cartItemKey = control.data('cart-item-key');
+        var currentQty = parseInt(display.text()) || 1;
+    
+        if ($(this).hasClass('qty-increase')) {
+            currentQty++;
+        } else if ($(this).hasClass('qty-decrease') && currentQty > 1) {
+            currentQty--;
+        }
+    
+        display.text(currentQty < 10 ? '0' + currentQty : currentQty);
+    
+        $.ajax({
+            type: 'POST',
+            url: Checkout_Designer.ajaxurl,
+            data: {
+                action: 'woocommerce_update_cart_item_qty',
+                cart_item_key: cartItemKey,
+                quantity: currentQty,
+            },
+            success: function (response) {
+                update_totals_based_on_payment_method();
+            },
+        });
+    });
+    
     // Function to toggle MAC address input visibility
     function toggleMacAddressInput() {
         var selectedOption = $(".addon-option-select").val();
