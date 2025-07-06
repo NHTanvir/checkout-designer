@@ -85,7 +85,7 @@ class AJAX extends Base {
 			$quantity 			= $cart_item['quantity'];
 
 			echo '<tr>';
-				echo '<td>' . esc_html($product_name) . '</td>';
+				echo '<td><div class="product-title">' . esc_html($product_name) . '</div></td>';
 				echo '<td>' . wc_price($price) . '</td>';
 				echo '<td>';
 					echo '<div class="quantity-control" data-cart-item-key="' . esc_attr($cart_item_key) . '">';

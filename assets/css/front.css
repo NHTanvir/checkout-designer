@@ -1,751 +1,784 @@
 h2,h3,h4,h5,h6,a,p,div{
-        font-family: "Helvetica", sans-serif;
+    font-family: "Helvetica", sans-serif;
 }
 table tbody tr, table tbody td {
-    background-color: unset !important;
+background-color: unset !important;
 }
 .checkout-columns {
-    display: flex;
-    justify-content: space-between;
-    padding: 0px;
+display: flex;
+justify-content: space-between;
+padding: 0px;
 }
 .woocommerce-checkout .checkout-left {
-    width: 60%;
-    margin-right: 0px;
-    background: #191932;
-    padding: 70px 80px;
+width: 60%;
+margin-right: 0px;
+background: #191932;
+padding: 70px 80px;
 }
 .woocommerce-checkout .checkout-right{
-        width: 40%;
-    margin: 0px;
-    background: #fff;
-    padding: 70px 80px;
+    width: 40%;
+margin: 0px;
+background: #fff;
+padding: 70px 80px;
 }
 div#customer_details, .woocommerce-checkout h3#order_review_heading,#order_review.woocommerce-checkout-review-order,.woocommerce-checkout header.fl-post-header,.woocommerce-checkout h3#order_review_heading{
-    display: none;
+display: none;
 }
 .woocommerce-checkout .checkout-left h3,.checkout-right h3{
-    font-size: 40px !important;
-    font-weight: 700;
-    color: #fff;
-    margin-top: 0px;
-    margin-bottom: 40px;
+font-size: 40px !important;
+font-weight: 700;
+color: #fff;
+margin-top: 0px;
+margin-bottom: 40px;
 }
 .checkout-right h3{
-    color:#191932;
-    margin-bottom: 32px;
+color:#191932;
+margin-bottom: 32px;
 }
 
 .woocommerce-page #payment ul.payment_methods::before,.woocommerce-page #payment ul.payment_methods::after,.checkout-left table.product-table thead {
-    display: none;
+display: none;
 }
 
 .checkout-left table.product-table {
-    width: 100%;
-    margin-bottom: 24px;
+width: 100%;
+margin-bottom: 24px;
 }
 .checkout-left table.product-table tr td:first-child {
-    border: 2px solid #6BDA8933;
-    display: block;
-    width: 140px;
-    color: #fff;
-    font-size: 16px;
-    padding: 20px 15px;
-    border-radius: 16px;
-    line-height: 1;
+border: unset;
+display: block;
+width: 140px;
+padding: 10px 0px;
 }
-
+.checkout-left table.product-table tr td:first-child .product-title{
+border: 2px solid #6BDA8933;
+color: #fff;
+font-size: 16px;
+padding: 20px 10px;
+border-radius: 16px;
+line-height: 1;
+text-align: center;
+}
 .checkout-left table.product-table tr td:nth-child(2) {
-    border: unset;
-    width: 50%;
-    line-height: 1;
-    color: #6BDA89;
-    font-size: 32px;
-    font-weight: 700;
+border: unset;
+width: 50%;
+line-height: 1.5;
+color: #6BDA89;
+font-size: 32px;
+font-weight: 700;
 }
 .checkout-left table.product-table tr td:nth-child(3) {
-    padding: 10px 0px;
-    text-align: right;
-    border: unset;
-    display: flex;
-    justify-content: flex-end;
+padding: 10px 0px;
+text-align: right;
+border: unset;
+display: flex;
+justify-content: flex-end;
 }
 .quantity-control {
-    width: 120px;
-    display: flex
+width: 120px;
+display: flex
 ;
-    justify-content: space-between;
-    align-content: center;
-    align-items: center;
+justify-content: space-between;
+align-content: center;
+align-items: center;
 }
 .addons-head h6.method {
-    color: #fff;
-    font-size: 20px;
-    font-weight: 600;
-    margin: 0px;
+color: #fff;
+font-size: 20px;
+font-weight: 600;
+margin: 0px;
 }
 .addons-head{
-        display: flex
-;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 16px;
-}
-.addons-head p {
-    margin: 0px;
-    font-size: 12px;
     display: flex
 ;
-    align-items: center;
-    align-content: center;
-    color: #6BDA89;
-    background: #303047;
-    padding: 2px 10px;
-    border-radius: 8px;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 16px;
+}
+.addons-head p {
+margin: 0px;
+font-size: 12px;
+display: flex
+;
+align-items: center;
+align-content: center;
+color: #6BDA89;
+background: #303047;
+padding: 2px 10px;
+border-radius: 8px;
 }
 .addons-head p img {
-    margin-right: 6px;
-        margin-top: -1px;
+margin-right: 6px;
+    margin-top: -1px;
 }
 
 .addons-body select {
-    appearance: none;
-    background-image: url(https://iptvking.co/wp-content/plugins/checkout-designer/assets/img/Frame.png);
-    background-repeat: no-repeat;
-    background-position: right 18px top 50%;
-    background-size: 13px auto;
-    background-color: #303047;
-    color: #fff;
+appearance: none;
+background-image: url(https://iptvking.co/wp-content/plugins/checkout-designer/assets/img/Frame.png);
+background-repeat: no-repeat;
+background-position: right 18px top 50%;
+background-size: 13px auto;
+background-color: #303047;
+color: #fff;
 }
 .addons-body {
-    display: flex;
-    flex-direction: column;
-    column-gap: 18px;
-    row-gap: 18px;
+display: flex;
+flex-direction: column;
+column-gap: 18px;
+row-gap: 18px;
 }
 
 .addons-body select,.addons-body input.addon-mac-address,button.button.add-addon-to-cart {
-    height: 50px;
-    border: unset;
-    padding: 14px 18px;
-    border-radius: 7px;
-    width: 100%;
+height: 50px;
+border: unset;
+padding: 14px 18px;
+border-radius: 7px;
+width: 100%;
 }
 input.addon-mac-address.red {
-    border: 1px solid red;
-        background-color: #303047;
+border: 1px solid red;
+    background-color: #303047;
 }
 
 
 input.addon-mac-address::placeholder {
-    color: #fff !important;
-        background-color: #303047;
+color: #fff !important;
+    background-color: #303047;
 }
 
 input.addon-mac-address {
-    color: #fff !important;
-        background-color: #303047;
+color: #fff !important;
+    background-color: #303047;
 }
 .addons-body button.button.add-addon-to-cart {
-    background-color: #6BDA89 !important;
-    color: #fff !important;
-    width: 140px;
+background-color: #6BDA89 !important;
+color: #fff !important;
+width: 140px;
 }
 .checkout-left table.totals-table tbody tr td {
-    padding: 0px 0px 10px 0px;
-    font-size: 20px;
-    border: unset !important;
-    color: #fff;
+padding: 0px 0px 10px 0px;
+font-size: 20px;
+border: unset !important;
+color: #fff;
 }
 
 
 .checkout-left table.totals-table tbody tr td:nth-child(2) {
-    width: 30%;
-    font-weight: 500;
-    font-size: 24px;
-    color: #6BDA89;
-    text-align: right;
+width: 30%;
+font-weight: 500;
+font-size: 24px;
+color: #6BDA89;
+text-align: right;
 }
 
 input#coupon_code::placeholder {
-    color: #fff !important;
+color: #fff !important;
 }
 
 .checkout-left .coupon p.form-row {
-    display: flex;
-    justify-content: space-between;
-    padding: 0px;
-    column-gap: 20px;
+display: flex;
+justify-content: space-between;
+padding: 0px;
+column-gap: 20px;
 }
 
 .checkout-left .coupon input#coupon_code {
 background: #303047 !important;
-    color: #fff !important;
-    height: 45px;
-    border-radius: 4px;
-    margin-right: 0px;
-    border: unset;
+color: #fff !important;
+height: 45px;
+border-radius: 4px;
+margin-right: 0px;
+border: unset;
+    padding-left: 20px;
 }
 
 .checkout-left .coupon button.button {
-    background: #6BDA89;
-    color: #fff !important;
-    border-radius: 4px !important;
-    padding: 0px 30px !important;
+background: #6BDA89;
+color: #fff !important;
+border-radius: 4px !important;
+padding: 0px 30px !important;
 }
 
 .checkout-left .coupon p.form-row::before,.checkout-left .coupon p.form-row::after {
-    display: none;
+display: none;
 }
 
 
 .payment-methods-section h6.method {
-    margin: 0px;
-    font-weight: 600;
-    color: #191932;
+margin: 0px;
+font-weight: 600;
+color: #191932;
 }
 
 
 
 .woocommerce #payment ul.payment_methods, .woocommerce-page #payment ul.payment_methods {
-    border-bottom: unset;
-    background: #fff;
-    display: flex;
-    padding: 0px !important;
-    column-gap: 10px;
-    column-gap: 10px;
-    row-gap: 10px;
-    flex-direction: column;
-    border-bottom:0px !important;
+border-bottom: unset;
+background: #fff;
+display: flex;
+padding: 0px !important;
+column-gap: 10px;
+column-gap: 10px;
+row-gap: 10px;
+flex-direction: column;
+border-bottom:0px !important;
 }
 
 .woocommerce #payment, .woocommerce-page #payment {
-    background: #fff;
-    border: unset;
+background: #fff;
+border: unset;
 }
 
 .woocommerce-checkout .woocommerce-message,.woocommerce-checkout .woocommerce-privacy-policy-text {
-    display: none;
+display: none;
 }
 
 .checkout-right .form-row.place-order {
-    padding: 0px !important;
-    background: #fff;
+padding: 0px !important;
+background: #fff;
 }
 .checkout-right .form-row.place-order::before{
-    display:none !important;
+display:none !important;
 }
 
 .checkout-right button#place_order {
 background: #6BDA89;
-    width: fit-content;
-    height: 50px;
-    color: #fff;
-    font-weight: 600;
-    border: unset;
-    font-size: 16px;
-    margin-top: 30px;
-    border-radius: 4px !important;
-    display: block;
-    float: left !important;
+width: fit-content !important;
+height: 50px;
+color: #fff;
+font-weight: 600;
+border: unset;
+font-size: 16px;
+margin-top: 30px;
+border-radius: 4px !important;
+display: block;
+float: left !important;
 }
 
+svg#Capa_1 {
+margin-left: 10px;
+}
+
+.checkout-left .coupon button.button::after {
+content: url(https://iptvking.co/wp-content/plugins/checkout-designer/assets/img/right.png);
+padding-left: 10px;
+}
+.checkout-left .coupon button.button:hover,.addons-body button.button.add-addon-to-cart:hover,.checkout-right button#place_order:hover{
+    background: #6BDA89;
+color: #fff !important;
+opacity: .8;
+}
+.woocommerce-terms-and-conditions-wrapper{
+display:none;
+}
 
 /* sdfsdjf*/
 
-
-
 .quantity-control button {
-    background: #303047;
-    border: unset;
-    color: #fff;
-    padding: 3px 10px 5px;
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 1;
+background: #303047;
+border: unset;
+color: #fff;
+padding: 3px 10px 5px;
+font-size: 18px;
+font-weight: 700;
+line-height: 1;
 }
 .quantity-control button:hover{
-    background: #6BDA89;
+background: #6BDA89;
 }
 .quantity-control button:focus{
-    background: #303047;
+background: #303047;
 }
 
 span.qty-display {
-    line-height: 1;
-    font-size: 24px;
-    font-weight: 500;
-    color: #6BDA89;
+line-height: 1;
+font-size: 24px;
+font-weight: 500;
+color: #6BDA89;
 }
 
 
 img.bit-coin-logo ~ img {
-    display: none;
+display: none;
 }
 
 .woocommerce-checkout #payment ul.payment_methods li .payment_box {
-    display: none !important;
+display: none !important;
 }
 
 .woocommerce-checkout #payment ul.payment_methods li label {
-    font-size: 0px;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    padding-bottom: 0px !important;
-    margin-bottom: 0px;
-    position: relative;
+font-size: 0px;
+display: flex;
+align-items: center;
+width: 100%;
+padding-bottom: 0px !important;
+margin-bottom: 0px;
+position: relative;
 }
 
 .woocommerce-checkout #payment ul.payment_methods li img.bit-coin-logo {
-    width: 16px;
-    margin: 0px !important;
+width: 16px;
+margin: 0px !important;
 }
 
 .woocommerce-checkout #payment ul.payment_methods li img.card-logo {
-    margin: 0px !important;
+margin: 0px !important;
 }
 
 .woocommerce-checkout #payment ul.payment_methods li .payment-text {
-    font-size: 16px;
-    padding-left: 5px;
-    font-weight: 600;
-    padding-left: 5px;
+font-size: 16px;
+padding-left: 5px;
+font-weight: 600;
+padding-left: 5px;
 }
 
 #add_payment_method #payment ul.payment_methods li input, .woocommerce-cart #payment ul.payment_methods li input, .woocommerce-checkout #payment ul.payment_methods li input {
-    margin: 12px 5px 12px 0px !important;
+margin: 12px 5px 12px 0px !important;
 }
 
-.woocommerce-checkout .payment_box.payment_method_blockonomics {
-    display: none !important;
+.woocommerce-checkout .payment_box.payment_method_crypto {
+display: none !important;
 }
 
 .woocommerce-checkout #payment ul.payment_methods li {
-    width: 100%;
-    border-radius: 10px;
-    border: 1px solid #E6E6E6;
-    padding: 8px 15px;
-    display: flex;
-    position: relative;
-    align-items: center;
+width: 100%;
+border-radius: 10px;
+border: 1px solid #E6E6E6;
+padding: 8px 15px;
+display: flex;
+position: relative;
+align-items: center;
 }
 
 .woocommerce-checkout #payment ul.payment_methods li p.payment-discription {
-    background: #16A18B1A;
-    color: #06AB52;
-    font-size: 12px;
-    text-align: center;
-    border-radius: 20px;
-    padding: 3px 15px;
-    margin-bottom: 0px;
-    position: absolute;
-    right: 0;
-    font-weight: 600;
+background: #16A18B1A;
+color: #06AB52;
+font-size: 12px;
+text-align: center;
+border-radius: 20px;
+padding: 3px 15px;
+margin-bottom: 0px;
+position: absolute;
+right: 0;
+font-weight: 600;
 }
 
-
-
-.blockonomics-payments-message {
-    background: #fff5e5;
-    border-radius: 8px;
-    padding: 10px;
-    margin: 25px 0px 0px;
-    font-size: 12px;
-    color: #000;
-    display: flex;
-    align-items: flex-start;
-    column-gap: 8px;
+.crypto-payments-message {
+background: #fff5e5;
+border-radius: 8px;
+padding: 10px;
+margin: 25px 0px 0px;
+font-size: 12px;
+color: #000;
+display: flex;
+align-items: flex-start;
+column-gap: 8px;
 }
 
-p.blockonomics-payments-message img {
-    width: 14px;
-    padding-top: 3px;
+p.crypto-payments-message img {
+width: 14px;
+padding-top: 3px;
 }
 
 .fee-table {
-    display: flex;
-    justify-content: space-between;
-    color: #000;
+display: flex;
+justify-content: space-between;
+color: #000;
 }
 
 .fee-price {
-    font-weight: 700;
+font-weight: 700;
 }
 
-.blockonomics-payments-message p {
-    margin-bottom: 0px;
+.crypto-payments-message p {
+margin-bottom: 0px;
 }
 
 
 .checkout-left table.totals-table {
-    width: 100%;
+width: 100%;
 }
 
 
 .bitcoin-payments-message-below {
-    background: #fff5e5;
-    border-radius: 8px;
-    padding: 10px;
-    margin: 20px 0px 0px 0px;
+background: #fff5e5;
+border-radius: 8px;
+padding: 10px;
+margin: 20px 0px 0px 0px;
 }
 
 .bitcoin-payments-message-below img {
-    width: 13px;
+width: 13px;
 }
 
 .bitcoin-payments-message-below p {
-    margin-bottom: 0px;
-    font-size: 12px;
-    color: #000;
-    display: flex;
-    align-items: flex-start;
-    column-gap: 8px;
+margin-bottom: 0px;
+font-size: 12px;
+color: #000;
+display: flex;
+align-items: flex-start;
+column-gap: 8px;
 }
 
-.payment-method-blockonomics li.wc_payment_method.payment_method_sellix {
-    border: 0.93px solid #FF9D00 !important;
-    background: #FF9D001A;
+.payment-method-crypto li.wc_payment_method.payment_method_sellix {
+border: 0.93px solid #FF9D00 !important;
+background: #FF9D001A;
 }
 
 .payment-method-card li.wc_payment_method.payment_method_sellix.payment-active {
-    border: 0.93px solid #FF9D00 !important;
-    background: #FF9D001A !important;
+border: 0.93px solid #FF9D00 !important;
+background: #FF9D001A !important;
 }
 
-.payment-method-blockonomics li.wc_payment_method.payment_method_sellix p.payment-discription {
-    background: #ffe5c3 !important;
-    color: #FF8A00 !important;
+.payment-method-crypto li.wc_payment_method.payment_method_sellix p.payment-discription {
+background: #ffe5c3 !important;
+color: #FF8A00 !important;
 }
 
 .payment-method-card li.wc_payment_method {
-    background: unset !important;
-    border: 0.93px solid #CBCBCB !important;
+background: unset !important;
+border: 0.93px solid #CBCBCB !important;
 }
 
 .payment-method-card li.wc_payment_method.payment-active {
-    background: #ECFFF5 !important;
-    border: 0.93px solid #32DD81 !important;
+background: #ECFFF5 !important;
+border: 0.93px solid #32DD81 !important;
 }
 
-.payment-method-card .blockonomics-payments-message {
-    background: #ECFFF5 !important;
+.payment-method-card .crypto-payments-message {
+background: #ECFFF5 !important;
 }
 
 p.payment-discription img {
-    width: 13px;
-    margin-right: 5px !important;
-    margin-left: 0px !important;
+width: 13px;
+margin-right: 5px !important;
+margin-left: 0px !important;
 }
 
 a.mobile-arrow-bottom {
-    display: none;
+display: none;
 }
 
-li.wc_payment_method.payment_method_blockonomics p.payment-discription img {
-    filter: brightness(0) invert(1);
+li.wc_payment_method.payment_method_crypto p.payment-discription img {
+filter: brightness(0) invert(1);
 }
 
 li.wc_payment_method p.payment-discription img {
-    width: 13px;
-    margin-right: 5px !important;
-    margin-left: 0px !important;
+width: 13px;
+margin-right: 5px !important;
+margin-left: 0px !important;
 }
 
-.payment-method-blockonomics li.wc_payment_method.payment_method_blockonomics p.payment-discription img {
-    filter: unset !important;
+.payment-method-crypto li.wc_payment_method.payment_method_crypto p.payment-discription img {
+filter: unset !important;
 }
 
-p.blockonomics-payments-message {
-    background: #ecfff5;
+p.crypto-payments-message {
+background: #ecfff5;
 }
 
-.payment-method-blockonomics .blockonomics-payments-message {
-    background: #fff5e5;
+.payment-method-crypto .crypto-payments-message {
+background: #fff5e5;
 }
 
 .payment-method-card li.wc_payment_method.payment_method_sellix {
-    background: unset !important;
-    border: 0.93px solid #CBCBCB !important;
+background: unset !important;
+border: 0.93px solid #CBCBCB !important;
 }
 
 .payment-method-card li.wc_payment_method.payment_method_sellix p.payment-discription {
-    background: #ffe5c3 !important;
-    color: #FF8A00 !important;
+background: #ffe5c3 !important;
+color: #FF8A00 !important;
 }
 
 
 
 .bitcoin-payments-message-below.dis-none {
-    display: none !important;
+display: none !important;
 }
 
 
 .payment-box-wrapper {
-    display: flex;
-    column-gap: 15px;
-    row-gap: 15px;
+display: flex;
+column-gap: 15px;
+row-gap: 15px;
 }
 
 .woocommerce-checkout #payment ul.payment_methods li p.payment-discription img {
-    display: none;
+display: none;
 }
 
 p.payment-dis {
-    display: block;
-    font-size: 10px;
-    margin-bottom: 0px;
-    color: #000;
-    font-weight: 400;
-    line-height: 1.5;
-    margin-top: -5px;
+display: block;
+font-size: 10px;
+margin-bottom: 0px;
+color: #000;
+font-weight: 400;
+line-height: 1.5;
+margin-top: -5px;
 }
 
 .woocommerce-checkout #payment ul.payment_methods li .payment-text {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
+display: flex;
+flex-direction: column;
+flex-wrap: nowrap;
 }
 
 button.button.add-addon-to-cart {
-    background: linear-gradient(90deg, #31DC80 0%, #16A18B 100%);
-    color: #fff;
-    width: 200px;
+background: linear-gradient(90deg, #31DC80 0%, #16A18B 100%);
+color: #fff;
+width: 200px;
 }
 
 p.payment-subtitle {
-    font-size: 10px;
-    font-weight: 400;
-    margin-bottom: 0px;
-    margin-top: -5px;
+font-size: 10px;
+font-weight: 400;
+margin-bottom: 0px;
+margin-top: -5px;
 }
 
 .woocommerce-checkout #payment ul.payment_methods li .payment-text {
-    display: flex !important;
-    flex-direction: column !important;
-    flex-wrap: nowrap !important;
+display: flex !important;
+flex-direction: column !important;
+flex-wrap: nowrap !important;
+}
+
+.payment-method-card li.payment-active.payment-type-card {
+background: #ECFFF5 !important;
+border: 0.93px solid #32DD81 !important;
+}
+
+.payment-method-crypto li.payment-active.payment-type-blockchain {
+border: 0.93px solid #FF9D00 !important;
+background: #FF9D001A;
+}
+
+li.payment-type-blockchain p.payment-discription {
+background: #ffe5c3 !important;
+color: #FF8A00 !important;
+}
+
+.remove-product-btn {
+margin-top: 10px;
+color: red;
+cursor: pointer;
+text-align: center;
+display: inline-block;
+}
+#order_review {
+display: none;
+}
+.payment-type-box {
+border: 1px solid #ddd;
+padding: 10px;
+margin-bottom: 15px;
+display: flex;
+align-items: center;
+cursor: pointer;
+}
+
+.payment-type-box label {
+display: flex;
+width: 100%;
+}
+
+.payment-type-box input[type="radio"] {
+margin-right: 15px;
+flex-shrink: 0;
+}
+
+.payment-type-content {
+flex-grow: 1;
+}
+
+.payment-type-content h4 {
+margin: 0;
+}
+
+.payment-type-content p {
+margin: 5px 0 0;
+font-size: 0.9em;
+color: #666;
+}
+.wc_payment_method {
+display: none;
+}
+.payment_method_crypto {
+display: block;
+}
+.desktop-table {
+display: table;
+}
+.mobile-table {
+display: none;
+}
+
+.payment-type-delayed .payment-box-wrapper .payment-type-box:nth-child(1) {
+border: 0.93px solid #ff9d00 !important;
+background: #ff9d001a;
+border-radius: 10px;
+padding: 8px;
+}
+
+.payment-type-direct .payment-box-wrapper .payment-type-box:nth-child(2) {
+background: #ecfff5 !important;
+border: 0.93px solid #32dd81 !important;
+border-radius: 10px;
+padding: 8px;
+}
+.payment-type-box input[type="radio"] {
+margin-right: 8px;
+flex-shrink: 0;
+}
+.payment-type-box {
+border-radius: 10px;
+border: 0.93px solid #cbcbcb;
+padding: 8px;
+width: 50%;
+}
+.payment-box-wrapper .payment-type-box .payment-type-content h4 {
+color: #838383;
+font-size: 16px;
+font-weight: 700;
+}
+.payment-type-delayed
+.payment-box-wrapper
+.payment-type-box:nth-child(1)
+.payment-type-content
+h4 {
+font-weight: 600 !important;
+color: #000;
+font-size: 16px;
+}
+.payment-type-direct
+.payment-box-wrapper
+.payment-type-box:nth-child(2)
+.payment-type-content
+h4 {
+font-weight: 600 !important;
+color: #000;
+font-size: 16px;
+}
+.woocommerce-checkout #payment ul.payment_methods li label > img:last-child {
+display: none;
+}
+.addon-mac-address {
+display: none;
+}
+.red {
+border: 2px solid red !important;
 }
 
 @media only screen and (max-width: 767px) {
-    .addons-head {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        flex-direction: column;
-    }
+.addons-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+}
 }
 
-button.remove-cart {
-    padding: 0px;
-    border: unset;
-    background: unset;
-}
 
 
 
 /* addon css stop */
 @media only screen and (max-width: 767px) {
-    
 
-    button.remove-cart img {
-        width: 25px;
-    }
+.checkout-columns {
+display: flex;
+justify-content: space-between;
 
-    .addons-head p {
-        font-size: 10px;
-        margin-bottom: 10px;
-    }
-
-
-    .woocommerce-checkout.fl-full-width .container {
-        width: 100% !important;
-    }
-
-
-
-    .woocommerce-checkout.fl-full-width .container>.row>.fl-content.col-md-12 {
-        margin: 0px !important;
-        padding: 0px !important;
-    }
-
-
-    .woocommerce-checkout #payment ul.payment_methods li {
-        padding: 10px 15px;
-    }
-
-    .woocommerce-checkout #payment ul.payment_methods li .payment-text {
-        font-size: 16px;
-        padding-left: 5px;
-        font-weight: 600;
-    }
-
-
-  
-    .bitcoin-payments-message-below {
-        margin: 20px 0px 0px 0px;
-    }
-
-
-    .checkout-right button#place_order {
-        position: absolute;
-        top: unset !important;
-        bottom: 20px !important;
-        left: 0px;
-        width: 100% !important;
-        margin: unset !important;
-        margin-top: 30px !important;
-        display: block !important;
-    }
-
-    .woocommerce-checkout #payment ul.payment_methods li p.payment-discription {
-        font-size: 10px;
-    }
-
-    a.mobile-arrow-bottom {
-        display: none;
-        width: 100%;
-        background: #ECFFF5;
-        padding: 15px;
-        text-align: center;
-        border-radius: 10px;
-        margin-top: 20px;
-    }
-
-    a.mobile-arrow-bottom img {
-        width: 20px;
-    }
+flex-direction: column;
+flex-wrap: nowrap;
 }
-
-.payment-method-card li.payment-active.payment-type-card {
-    background: #ECFFF5 !important;
-    border: 0.93px solid #32DD81 !important;
+.woocommerce-checkout .checkout-left {
+width: 100%;
+padding: 50px 20px;
 }
-
-.payment-method-blockonomics li.payment-active.payment-type-blockchain {
-    border: 0.93px solid #FF9D00 !important;
-    background: #FF9D001A;
+.woocommerce-checkout .checkout-right {
+width: 100%;
+padding: 30px 20px;
 }
-
-li.payment-type-blockchain p.payment-discription {
-    background: #ffe5c3 !important;
-    color: #FF8A00 !important;
+.woocommerce-checkout .checkout-left h3, .checkout-right h3 {
+font-size: 32px !important;
+margin-bottom: 25px;
 }
-
-.remove-product-btn {
-    margin-top: 10px;
-    color: red;
-    cursor: pointer;
-    text-align: center;
-    display: inline-block;
+.checkout-left table.product-table tr
+{
+display: flex;
+flex-wrap: wrap;
 }
-#order_review {
-    display: none;
-}
-.payment-type-box {
-    border: 1px solid #ddd;
-    padding: 10px;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-}
-
-.payment-type-box label {
-    display: flex;
+.checkout-left table.product-table tr td:first-child {
     width: 100%;
+padding: 0px;
+    padding-top: 10px;
+}
+.checkout-left table.product-table tr td:first-child .product-title {
+border: 2px solid #6BDA8933;
+color: #fff;
+font-size: 16px;
+padding: 10px 10px;
+border-radius: 20px;
+line-height: 1;
+text-align: center;
+width: fit-content;
+}
+.checkout-left table.product-table tr td:nth-child(2) {
+width: 50%;
+line-height: 1.5;
+font-size: 24px;
+padding: 10px 0px;
+}
+.checkout-left table.product-table tr td:nth-child(3) {
+width: 50%;
+padding: 0px 0px;
+}
+.checkout-left table.totals-table tbody tr td:nth-child(2)
+{
+width: 40%;
+font-weight: 500;
+font-size: 20px;
+}
+.checkout-left table.totals-table tbody tr td {
+padding: 0px 0px 10px 0px;
+font-size: 16px;
+}
+.addons-head h6.method {
+margin-bottom: 10px;
+}
+span.qty-display {
+line-height: 1;
+font-size: 20px;
+}
+.woocommerce-checkout #payment ul.payment_methods li {
+    padding: 10px 15px;
 }
 
-.payment-type-box input[type="radio"] {
-    margin-right: 15px;
-    flex-shrink: 0;
+.woocommerce-checkout #payment ul.payment_methods li .payment-text {
+    font-size: 16px;
+    padding-left: 5px;
+    font-weight: 600;
 }
 
-.payment-type-content {
-    flex-grow: 1;
+
+
+.bitcoin-payments-message-below {
+    margin: 20px 0px 0px 0px;
 }
 
-.payment-type-content h4 {
-    margin: 0;
+
+.woocommerce-checkout #payment ul.payment_methods li p.payment-discription {
+    font-size: 10px;
 }
 
-.payment-type-content p {
-    margin: 5px 0 0;
-    font-size: 0.9em;
-    color: #666;
 }
-.wc_payment_method {
-    display: none;
-}
-.payment_method_blockonomics {
-    display: block;
-}
+
+
+@media (max-width: 768px) {
 .desktop-table {
-    display: table;
+    display: none; /* Hide for mobile */
 }
 .mobile-table {
-    display: none;
+    display: table; /* Show for mobile */
 }
-
-.payment-type-delayed .payment-box-wrapper .payment-type-box:nth-child(1) {
-    border: 0.93px solid #ff9d00 !important;
-    background: #ff9d001a;
-    border-radius: 10px;
-    padding: 8px;
-}
-
-.payment-type-direct .payment-box-wrapper .payment-type-box:nth-child(2) {
-    background: #ecfff5 !important;
-    border: 0.93px solid #32dd81 !important;
-    border-radius: 10px;
-    padding: 8px;
-}
-.payment-type-box input[type="radio"] {
-    margin-right: 8px;
-    flex-shrink: 0;
-}
-.payment-type-box {
-    border-radius: 10px;
-    border: 0.93px solid #cbcbcb;
-    padding: 8px;
-    width: 50%;
-}
-.payment-box-wrapper .payment-type-box .payment-type-content h4 {
-    color: #838383;
-    font-size: 16px;
-    font-weight: 700;
-}
-.payment-type-delayed
-    .payment-box-wrapper
-    .payment-type-box:nth-child(1)
-    .payment-type-content
-    h4 {
-    font-weight: 600 !important;
-    color: #000;
-    font-size: 16px;
-}
-.payment-type-direct
-    .payment-box-wrapper
-    .payment-type-box:nth-child(2)
-    .payment-type-content
-    h4 {
-    font-weight: 600 !important;
-    color: #000;
-    font-size: 16px;
-}
-.woocommerce-checkout #payment ul.payment_methods li label > img:last-child {
-    display: none;
-}
-.addon-mac-address {
-    display: none;
-}
-.red {
-    border: 2px solid red !important;
-}
-@media (max-width: 768px) {
-    .desktop-table {
-        display: none; /* Hide for mobile */
-    }
-    .mobile-table {
-        display: table; /* Show for mobile */
-    }
 }

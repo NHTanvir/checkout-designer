@@ -11,7 +11,7 @@ if ($cyrpto_check == 'yes') {
 }
 ?>
 
-<div class="blockonomics-payments-info" style="<?php echo esc_attr($mics_style); ?>">
+<div class="card-payments-info" style="<?php echo esc_attr($mics_style); ?>">
     <h6 class="method"><?php esc_html_e('Total avgifter', 'checkout-designer'); ?></h6>
     <div class="fee-table">
         <div class="fee-title">
@@ -21,7 +21,7 @@ if ($cyrpto_check == 'yes') {
             <?php esc_html_e('100-400 SEK', 'checkout-designer'); ?>
         </div>
     </div>
-    <p class="blockonomics-payments-message">
+    <p class="card-payments-message">
         <img src="<?php echo esc_url('https://iptvutanbox.com/wp-content/uploads/2024/09/info.png'); ?>" alt="">
         <span>
             <?php 
@@ -34,7 +34,7 @@ if ($cyrpto_check == 'yes') {
     </a>
 </div>
 
-<div class="blockonomics-payments-info" style="<?php echo esc_attr($bit_style); ?>">
+<div class="crypto-payments-info" style="<?php echo esc_attr($bit_style); ?>">
     <h6 class="method"><?php esc_html_e('Total avgifter', 'checkout-designer'); ?></h6>
     <div class="fee-table">
         <div class="fee-title">
@@ -44,7 +44,7 @@ if ($cyrpto_check == 'yes') {
             10%
         </div>
     </div>
-    <p class="blockonomics-payments-message">
+    <p class="crypto-payments-message">
         <img src="<?php echo esc_url('https://iptvutanbox.com/wp-content/uploads/2024/09/info-1.png'); ?>" alt="">
         <span>
             <?php 

@@ -43,7 +43,7 @@ jQuery(document).ready(function ($) {
         });
     
         if (selectedMethod === "crypto") {
-            $("body").addClass("payment-method-blockonomics");
+            $("body").addClass("payment-method-crypto");
         } else {
             $("body").addClass("payment-method-card");
         }
@@ -75,12 +75,12 @@ jQuery(document).ready(function ($) {
             'input[name="payment_method"]:checked'
         ).val();
         $(
-            ".bitcoin-payments-message-below, .normal-payments-message, .blockonomics-payments-message"
+            ".bitcoin-payments-message-below, .normal-payments-message, .crypto-payments-message"
         ).hide();
 
         if (selected_payment_method === "crypto") {
             $(".bitcoin-payments-message-below").show();
-            $(".blockonomics-payments-message").show();
+            $(".crypto-payments-message").show();
         } else {
             $(".normal-payments-message").show();
         }
