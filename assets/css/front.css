@@ -1,3 +1,20 @@
+
+#checkout-designer-modal {
+    position: fixed;
+    background: #c8c8c859;
+    top: 0;
+    border: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#checkout-designer-modal-loader {
+    position: absolute;
+}
 h2,h3,h4,h5,h6,a,p,div{
     font-family: "Helvetica", sans-serif;
 }

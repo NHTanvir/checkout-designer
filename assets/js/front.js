@@ -1,14 +1,14 @@
 jQuery(document).ready(function ($) {
 
 
-    let cd_modal = ( show = true ) => {
-        if(show) {
+    let cd_modal = (show = true) => {
+        if (show) {
             jQuery('#checkout-designer-modal').show();
-        }
-        else {
+        } else {
             jQuery('#checkout-designer-modal').hide();
         }
-    }
+    };
+    
     $("form.checkout").on(
         "change",
         'input[name="payment_method"]',
@@ -143,6 +143,7 @@ jQuery(document).ready(function ($) {
                 quantity: currentQty,
             },
             success: function (response) {
+                cd_modal(false);
                 update_totals_based_on_payment_method();
             },
         });
