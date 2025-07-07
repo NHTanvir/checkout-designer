@@ -53,18 +53,18 @@ class Settings extends Base {
 					// 'color'		=> '#4c3f93',
 					'sticky'	=> false,
 					'fields'    => [
-						'primary_color' => [
-							'id'      => 'primary_color',
-							'label'     => __( 'Primary Color', 'checkout-designer' ),
-							'type'      => 'color',
-							'desc'      => __( 'Pick a primary color.', 'checkout-designer' ),
-						],
-						'secondary_color' => [
-							'id'      => 'secondary_color',
-							'label'     => __( 'Secondary Color', 'checkout-designer' ),
-							'type'      => 'color',
-							'desc'      => __( 'Pick a secondary color.', 'checkout-designer' ),
-						],
+						// 'primary_color' => [
+						// 	'id'      => 'primary_color',
+						// 	'label'     => __( 'Primary Color', 'checkout-designer' ),
+						// 	'type'      => 'color',
+						// 	'desc'      => __( 'Pick a primary color.', 'checkout-designer' ),
+						// ],
+						// 'secondary_color' => [
+						// 	'id'      => 'secondary_color',
+						// 	'label'     => __( 'Secondary Color', 'checkout-designer' ),
+						// 	'type'      => 'color',
+						// 	'desc'      => __( 'Pick a secondary color.', 'checkout-designer' ),
+						// ],
 						'crypto_gateway' => [
 							'id'      => 'crypto_gateway',
 							'label'     => __( 'Crypto Gateway', 'checkout-designer' ),
