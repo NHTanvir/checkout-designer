@@ -108,13 +108,19 @@ class AJAX extends Base {
 		$cart_item_key = sanitize_text_field($_POST['cart_item_key']);
 		$quantity = intval($_POST['quantity']);
 
-		if ($cart_item_key && $quantity) {
-			WC()->cart->set_quantity($cart_item_key, $quantity);
+		if ($cart_item_key) {
+			if ($quantity > 0) {
+				WC()->cart->set_quantity($cart_item_key, $quantity);
+			} else {
+				WC()->cart->remove_cart_item($cart_item_key);
+			}
+
 			WC()->cart->calculate_totals();
 		}
 
 		wp_die();
 	}
+
 
 	public function add_addon_to_cart() {
 		if (!isset($_POST['product_id'])) {

@@ -32,8 +32,9 @@ class Settings extends Base {
 		$gateways = WC()->payment_gateways->payment_gateways();
 
 		foreach ( $gateways as $gateway_id => $gateway ) {
-			$gateway_options[ $gateway_id ] = $gateway->get_title();
+			 $gateway_options[ $gateway_id ] = $gateway->method_title;
 		}
+		
 		$settings = [
 			'id'            => $this->slug,
 			'label'         => $this->name,

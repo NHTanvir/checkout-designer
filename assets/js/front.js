@@ -120,27 +120,32 @@ jQuery(document).ready(function ($) {
     // Update cart on quantity change
     $(document).on('click', '.qty-increase, .qty-decrease', function () {
         cd_modal(true);
-    
+
         var control = $(this).closest('.quantity-control');
         var display = control.find('.qty-display');
         var cartItemKey = control.data('cart-item-key');
         var currentQty = parseInt(display.text()) || 1;
-    
+        var newQty = currentQty;
+
         if ($(this).hasClass('qty-increase')) {
-            currentQty++;
-        } else if ($(this).hasClass('qty-decrease') && currentQty > 1) {
-            currentQty--;
+            newQty++;
+        } else if ($(this).hasClass('qty-decrease')) {
+            newQty--;
         }
-    
-        display.text(currentQty < 10 ? '0' + currentQty : currentQty);
-    
+
+        if (newQty <= 0) {
+            control.closest('.cart-item-row').remove(); 
+        } else {
+            display.text(newQty < 10 ? '0' + newQty : newQty);
+        }
+
         $.ajax({
             type: 'POST',
             url: Checkout_Designer.ajaxurl,
             data: {
                 action: 'woocommerce_update_cart_item_qty',
                 cart_item_key: cartItemKey,
-                quantity: currentQty,
+                quantity: newQty,
             },
             success: function (response) {
                 cd_modal(false);
@@ -148,7 +153,7 @@ jQuery(document).ready(function ($) {
             },
         });
     });
-    
+
     // Function to toggle MAC address input visibility
     function toggleMacAddressInput() {
         var selectedOption = $(".addon-option-select").val();
