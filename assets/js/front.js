@@ -65,8 +65,10 @@ jQuery(document).ready(function ($) {
     );
 
     $(document.body).on("updated_checkout", function () {
-       updateBodyClass();
+        updateBodyClass();
         updatePaymentMethodClass();
+        const $originalPayment = $('#order_review #payment').clone();
+        $('.checkout-right .woocommerce-checkout-payment').html($originalPayment.html());
     });
 
     function update_totals_based_on_payment_method() {
