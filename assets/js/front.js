@@ -1,6 +1,4 @@
 jQuery(document).ready(function ($) {
-
-
     let cd_modal = (show = true) => {
         if (show) {
             jQuery('#checkout-designer-modal').show();
@@ -49,12 +47,9 @@ jQuery(document).ready(function ($) {
         }
     }
     
-
-
     updateBodyClass();
     updatePaymentMethodClass();
 
-    // Change event to update class when payment method is changed
     $("form.woocommerce-checkout").on(
         "change",
         'input[name="payment_method"]',
@@ -156,7 +151,6 @@ jQuery(document).ready(function ($) {
         });
     });
 
-    // Function to toggle MAC address input visibility
     function toggleMacAddressInput() {
         var selectedOption = $(".addon-option-select").val();
         var macAddressInput = $(".addon-mac-address");
@@ -164,7 +158,7 @@ jQuery(document).ready(function ($) {
         if (selectedOption === "förnyelse") {
             macAddressInput.show();
         } else {
-            macAddressInput.hide().removeClass("red"); // Hide and remove red border
+            macAddressInput.hide().removeClass("red");
         }
     }
 
@@ -181,18 +175,17 @@ jQuery(document).ready(function ($) {
         }
     }
 
-    $(document).ready(function () {
-        toggleMacAddressInput(); // Check initial state on page load
 
-        // Remove "red" class when user starts typing
-        $(".addon-mac-address").on("input", function () {
-            if ($(this).val()) {
-                $(this).removeClass("red");
-            } else {
-                $(this).addClass("red");
-            }
-        });
+    toggleMacAddressInput();
+
+    $(".addon-mac-address").on("input", function () {
+        if ($(this).val()) {
+            $(this).removeClass("red");
+        } else {
+            $(this).addClass("red");
+        }
     });
+
 
     $(".addon-option-select").on("change", function () {
         toggleMacAddressInput();

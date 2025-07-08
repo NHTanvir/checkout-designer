@@ -42,14 +42,14 @@ class AJAX extends Base {
 		}
 
 		if ($cyrpto_check == 'yes') {
-
+   		 	echo '<h4>' . __( 'Fakturauppgifter', 'checkout-designer' ) . '</h4>';
 			echo '<table class="totals-table">';
 			echo '<tbody>';
 			echo '<tr><td>Pris | SEK</td><td>' . do_shortcode('[total-price-sek]') . '</td></tr>';
 			echo '</tbody>';
 			echo '</table>';
 		} else{
-
+			echo '<h4>' . __( 'Fakturauppgifter', 'checkout-designer' ) . '</h4>';
 			echo '<table class="totals-table">';
 			echo '<tbody>';
 			echo '<tr><td>Pris | SEK</td><td>' . do_shortcode('[total-price-sek]') . '</td></tr>';
