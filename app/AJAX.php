@@ -4,6 +4,7 @@
  */
 namespace Codexpert\CheckoutDesigner\App;
 use Codexpert\Plugin\Base;
+use Codexpert\CheckoutDesigner\Helper;
 
 /**
  * if accessed directly, exit.
@@ -33,15 +34,20 @@ class AJAX extends Base {
 
 	public function update_cart_totals_on_payment_method_change() {
 
-		$selected_payment_method = sanitize_text_field($_POST['payment_method']);
-		$cyrpto_check               = get_option( "{$selected_payment_method}_crypto_check" );
-		foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) {
-			$_product = $cart_item['data'];
-			$product_name = $_product->get_name();
+		$selected_payment_method 	= sanitize_text_field( $_POST['payment_method'] );
+		$cyrpto_gateway       		= Helper::get_option( "checkout-designer_basic", 'crypto_gateway' );
+
+		if ( $selected_payment_method ) {
+			WC()->session->set( 'chosen_payment_method', $selected_payment_method );
+		}
+
+		foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
+			$_product 		= $cart_item['data'];
+			$product_name 	= $_product->get_name();
 			
 		}
 
-		if ($cyrpto_check == 'yes') {
+		if ( $selected_payment_method == $cyrpto_gateway ) {
    		 	echo '<h4>' . __( 'Fakturauppgifter', 'checkout-designer' ) . '</h4>';
 			echo '<table class="totals-table">';
 			echo '<tbody>';
@@ -63,7 +69,6 @@ class AJAX extends Base {
 	}
 
 	public function update_table_on_payment_method_change() {
-		$selected_payment_method = sanitize_text_field($_POST['payment_method']);
 
 		echo '<table class="product-table">';
 		echo '<thead>';

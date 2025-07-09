@@ -80,7 +80,7 @@ $selected_payment_method = WC()->session->get('chosen_payment_method');
 
 		<?php if ( $selected_payment_method ) :
 		    $cyrpto_gateway       = Helper::get_option( "checkout-designer_basic", 'crypto_gateway' );
-			if ( $cyrpto_gateway != $selected_payment_method ) : ?>
+			if ( $cyrpto_gateway == $selected_payment_method ) : ?>
 				<div class="total-section">
 				    <h4><?php _e( 'Fakturauppgifter', 'checkout-designer') ?></h4>
 					<table class="totals-table">
