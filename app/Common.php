@@ -32,14 +32,27 @@ class Common extends Base {
 	}
 
 	public function set_default_payment_method() {
-		if ( ! WC()->session->get('chosen_payment_method') ) {
-			$available_gateways = WC()->payment_gateways->get_available_payment_gateways();
-			if ( ! empty( $available_gateways ) ) {
-				$first_gateway = current( $available_gateways );
-				WC()->session->set( 'chosen_payment_method', $first_gateway->id );
+	
+		$available_gateways = WC()->payment_gateways->get_available_payment_gateways();
+		if ( empty( $available_gateways ) ) {
+			return;
+		}
+	
+		$gateway_order = get_option( 'woocommerce_gateway_order', [] );
+		if ( empty( $gateway_order ) ) {
+			return;
+		}
+	
+		asort( $gateway_order );
+	
+		foreach ( $gateway_order as $gateway_id => $priority ) {
+			if ( isset( $available_gateways[ $gateway_id ] ) ) {
+				WC()->session->set( 'chosen_payment_method', $gateway_id );
+				break;
 			}
 		}
 	}
+	
 	public function custom_checkout_columns_start() {
 		echo Helper::get_template( 'left', 'views/checkout' );
 	}
