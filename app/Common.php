@@ -100,5 +100,38 @@ class Common extends Base {
 
 		return $button_text;
 	}
+
+	public function add_custom_data_to_cart_item( $cart_item_data, $product_id ) {
+		if ( isset( $_POST['addon_option'] ) ) {
+			$cart_item_data['addon_option'] = sanitize_text_field( $_POST['addon_option'] );
+		}
+		if ( isset( $_POST['mac_address'] ) ) {
+			$cart_item_data['mac_address'] = sanitize_text_field( $_POST['mac_address'] );
+		}
+		return $cart_item_data;
+	}
+
+	public function save_custom_data_to_order_meta( $item, $cart_item_key, $values, $order ) {
+		if ( isset( $values['addon_option'] ) ) {
+			$item->add_meta_data( 'Addon Option', $values['addon_option'], true );
+		}
+
+		if ( isset( $values['mac_address'] ) ) {
+			$item->add_meta_data( 'MAC Address', $values['mac_address'], true );
+		}
+	}
+
+	public function display_custom_order_item_meta_in_admin( $item_id, $item, $order ) {
+		$addon_option 	= $item->get_meta('addon_option');
+		$mac_address 	= $item->get_meta('mac_address');
+
+		if ( $addon_option ) {
+			echo '<p><strong>Addon Option:</strong> ' . esc_html( $addon_option ) . '</p>';
+		}
+
+		if ( $mac_address ) {
+			echo '<p><strong>MAC Address:</strong> ' . esc_html( $mac_address ) . '</p>';
+		}
+	}
 }
 

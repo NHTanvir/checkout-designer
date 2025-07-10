@@ -176,6 +176,10 @@ final class Plugin {
 		$common->filter( 'woocommerce_checkout_fields', 'make_all_checkout_fields_optional' );
 		$common->action( 'woocommerce_after_checkout_validation', 'remove_terms_error', 10, 2 );
 		$common->filter( 'woocommerce_order_button_text', 'change_woocommerce_order_button_text', 9999999999 );
+		$common->filter( 'woocommerce_add_cart_item_data', 'add_custom_data_to_cart_item', 10, 2 );
+		$common->action( 'woocommerce_checkout_create_order_line_item', 'save_custom_data_to_order_meta', 10, 4 );
+		$common->action( 'woocommerce_before_order_itemmeta', 'display_custom_order_item_meta_in_admin', 10, 3 );
+
 
 		/**
 		 * AJAX related hooks
