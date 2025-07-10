@@ -1,4 +1,3 @@
-
 #checkout-designer-modal {
     position: fixed;
     background: #c8c8c859;
@@ -221,7 +220,7 @@ display: none;
 }
 
 
-.payment-methods-section h6.method {
+.payment-methods-section>h6.method {
 margin: 0px;
 font-weight: 600;
 color: #191932;
@@ -266,7 +265,7 @@ color: #fff;
 font-weight: 600;
 border: unset;
 font-size: 16px;
-margin-top: 30px;
+margin-top: 20px !important;
 border-radius: 4px !important;
 display: block;
 float: left !important;
@@ -288,8 +287,10 @@ opacity: .8;
 .woocommerce-terms-and-conditions-wrapper{
 display:none;
 }
-
-/* sdfsdjf*/
+.total-section h4{
+    color:#6BDA89;
+    font-size:20px;
+}
 
 .quantity-control button {
 background: #303047;
@@ -315,377 +316,102 @@ color: #6BDA89;
 }
 
 
-img.bit-coin-logo ~ img {
-display: none;
+.wc_payment_method .payment_box,.wc_payment_method p.payment-discription,a.mobile-arrow-bottom{
+    display: none !important;
 }
-
-.woocommerce-checkout #payment ul.payment_methods li .payment_box {
-display: none !important;
+.woocommerce-checkout #payment ul.payment_methods li input {
+    margin: 0px !important;
 }
-
-.woocommerce-checkout #payment ul.payment_methods li label {
-font-size: 0px;
-display: flex;
-align-items: center;
-width: 100%;
-padding-bottom: 0px !important;
-margin-bottom: 0px;
-position: relative;
+li.wc_payment_method {
+    display: flex;
+    flex-direction: row-reverse;
+    background: #1919321A;
+    padding: 18px 15px;
+    border-radius: 4px;
+    position: relative;
 }
-
-.woocommerce-checkout #payment ul.payment_methods li img.bit-coin-logo {
-width: 16px;
-margin: 0px !important;
+.form-row.place-order h6.method {
+    background: #6BDA891A;
+    width: fit-content;
+    padding: 10px 12px;
+    border-radius: 8px;
+    color: #6BDA89;
+    font-size: 16px;
+        margin-top: 25px;
 }
-
-.woocommerce-checkout #payment ul.payment_methods li img.card-logo {
-margin: 0px !important;
-}
-
-.woocommerce-checkout #payment ul.payment_methods li .payment-text {
-font-size: 16px;
-padding-left: 5px;
-font-weight: 600;
-padding-left: 5px;
-}
-
-#add_payment_method #payment ul.payment_methods li input, .woocommerce-cart #payment ul.payment_methods li input, .woocommerce-checkout #payment ul.payment_methods li input {
-margin: 12px 5px 12px 0px !important;
-}
-
-.woocommerce-checkout .payment_box.payment_method_crypto {
-display: none !important;
-}
-
-.woocommerce-checkout #payment ul.payment_methods li {
-width: 100%;
-border-radius: 10px;
-border: 1px solid #E6E6E6;
-padding: 8px 15px;
-display: flex;
-position: relative;
-align-items: center;
-}
-
-.woocommerce-checkout #payment ul.payment_methods li p.payment-discription {
-background: #16A18B1A;
-color: #06AB52;
-font-size: 12px;
-text-align: center;
-border-radius: 20px;
-padding: 3px 15px;
-margin-bottom: 0px;
-position: absolute;
-right: 0;
-font-weight: 600;
-}
-
-.crypto-payments-message {
-background: #fff5e5;
-border-radius: 8px;
-padding: 10px;
-margin: 25px 0px 0px;
-font-size: 12px;
-color: #000;
-display: flex;
-align-items: flex-start;
-column-gap: 8px;
-}
-
-p.crypto-payments-message img {
-width: 14px;
-padding-top: 3px;
-}
-
 .fee-table {
-display: flex;
-justify-content: space-between;
-color: #000;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: 10px;
+    align-content: center;
+    margin-bottom: 30px;
 }
-
-.fee-price {
-font-weight: 700;
+.fee-table .fee-title {
+    font-size: 16px;
+    color: #191932;
+    font-weight: 500;
 }
-
-.crypto-payments-message p {
-margin-bottom: 0px;
+.fee-table .fee-price {
+    font-size: 20px;
+    color: #6BDA89;
+    font-weight: 600;
 }
-
-
-.checkout-left table.totals-table {
-width: 100%;
+.wc_payment_method label {
+    font-size: 0px;
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
 }
-
-
-.bitcoin-payments-message-below {
-background: #fff5e5;
-border-radius: 8px;
-padding: 10px;
-margin: 20px 0px 0px 0px;
+.payment-text {
+    color: #191932;
+    font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+        padding-left: 10px;
 }
-
-.bitcoin-payments-message-below img {
-width: 13px;
+.payment-text p.payment-dis {
+    font-size: 12px;
+    font-weight: 500;
+    color: #191932;
+        margin: 0px;
 }
-
-.bitcoin-payments-message-below p {
-margin-bottom: 0px;
-font-size: 12px;
-color: #000;
-display: flex;
-align-items: flex-start;
-column-gap: 8px;
+.woocommerce-checkout #payment {
+    background: #fff !important;
+    border-radius: 0px !important;
 }
-
-.payment-method-crypto li.wc_payment_method.payment_method_sellix {
-border: 0.93px solid #FF9D00 !important;
-background: #FF9D001A;
+p.success-box {
+    background: #6BDA891A;
+    border-radius: 8px;
+    padding: 14px 12px;
+    font-size: 12px;
+    line-height: 1.2;
+    display: inline-flex;
+    align-items: center;
+    color: #6BDA89;
 }
-
-.payment-method-card li.wc_payment_method.payment_method_sellix.payment-active {
-border: 0.93px solid #FF9D00 !important;
-background: #FF9D001A !important;
+p.success-box img,p.warning-box img{
+        margin-right: 10px;
 }
-
-.payment-method-crypto li.wc_payment_method.payment_method_sellix p.payment-discription {
-background: #ffe5c3 !important;
-color: #FF8A00 !important;
+p.warning-box{
+        background: #EB001B1A;
+    border-radius: 8px;
+    padding: 14px 12px;
+    font-size: 12px;
+    line-height: 1.2;
+    display: inline-flex;
+    align-items: center;
+    color: #EB001B;
 }
-
-.payment-method-card li.wc_payment_method {
-background: unset !important;
-border: 0.93px solid #CBCBCB !important;
+.payment-method-crypto .crypto-payments-info {
+    display: block !important;
 }
-
-.payment-method-card li.wc_payment_method.payment-active {
-background: #ECFFF5 !important;
-border: 0.93px solid #32DD81 !important;
+.payment-method-crypto .card-payments-info {
+    display: none !important;
 }
-
-.payment-method-card .crypto-payments-message {
-background: #ECFFF5 !important;
-}
-
-p.payment-discription img {
-width: 13px;
-margin-right: 5px !important;
-margin-left: 0px !important;
-}
-
-a.mobile-arrow-bottom {
-display: none;
-}
-
-li.wc_payment_method.payment_method_crypto p.payment-discription img {
-filter: brightness(0) invert(1);
-}
-
-li.wc_payment_method p.payment-discription img {
-width: 13px;
-margin-right: 5px !important;
-margin-left: 0px !important;
-}
-
-.payment-method-crypto li.wc_payment_method.payment_method_crypto p.payment-discription img {
-filter: unset !important;
-}
-
-p.crypto-payments-message {
-background: #ecfff5;
-}
-
-.payment-method-crypto .crypto-payments-message {
-background: #fff5e5;
-}
-
-.payment-method-card li.wc_payment_method.payment_method_sellix {
-background: unset !important;
-border: 0.93px solid #CBCBCB !important;
-}
-
-.payment-method-card li.wc_payment_method.payment_method_sellix p.payment-discription {
-background: #ffe5c3 !important;
-color: #FF8A00 !important;
-}
-
-
-
-.bitcoin-payments-message-below.dis-none {
-display: none !important;
-}
-
-
-.payment-box-wrapper {
-display: flex;
-column-gap: 15px;
-row-gap: 15px;
-}
-
-.woocommerce-checkout #payment ul.payment_methods li p.payment-discription img {
-display: none;
-}
-
-p.payment-dis {
-display: block;
-font-size: 10px;
-margin-bottom: 0px;
-color: #000;
-font-weight: 400;
-line-height: 1.5;
-margin-top: -5px;
-}
-
-.woocommerce-checkout #payment ul.payment_methods li .payment-text {
-display: flex;
-flex-direction: column;
-flex-wrap: nowrap;
-}
-
-button.button.add-addon-to-cart {
-background: linear-gradient(90deg, #31DC80 0%, #16A18B 100%);
-color: #fff;
-width: 200px;
-}
-
-p.payment-subtitle {
-font-size: 10px;
-font-weight: 400;
-margin-bottom: 0px;
-margin-top: -5px;
-}
-
-.woocommerce-checkout #payment ul.payment_methods li .payment-text {
-display: flex !important;
-flex-direction: column !important;
-flex-wrap: nowrap !important;
-}
-
-.payment-method-card li.payment-active.payment-type-card {
-background: #ECFFF5 !important;
-border: 0.93px solid #32DD81 !important;
-}
-
-.payment-method-crypto li.payment-active.payment-type-blockchain {
-border: 0.93px solid #FF9D00 !important;
-background: #FF9D001A;
-}
-
-li.payment-type-blockchain p.payment-discription {
-background: #ffe5c3 !important;
-color: #FF8A00 !important;
-}
-
-.remove-product-btn {
-margin-top: 10px;
-color: red;
-cursor: pointer;
-text-align: center;
-display: inline-block;
-}
-#order_review {
-display: none;
-}
-.payment-type-box {
-border: 1px solid #ddd;
-padding: 10px;
-margin-bottom: 15px;
-display: flex;
-align-items: center;
-cursor: pointer;
-}
-
-.payment-type-box label {
-display: flex;
-width: 100%;
-}
-
-.payment-type-box input[type="radio"] {
-margin-right: 15px;
-flex-shrink: 0;
-}
-
-.payment-type-content {
-flex-grow: 1;
-}
-
-.payment-type-content h4 {
-margin: 0;
-}
-
-.payment-type-content p {
-margin: 5px 0 0;
-font-size: 0.9em;
-color: #666;
-}
-.wc_payment_method {
-display: none;
-}
-.payment_method_crypto {
-display: block;
-}
-.desktop-table {
-display: table;
-}
-.mobile-table {
-display: none;
-}
-
-.payment-type-delayed .payment-box-wrapper .payment-type-box:nth-child(1) {
-border: 0.93px solid #ff9d00 !important;
-background: #ff9d001a;
-border-radius: 10px;
-padding: 8px;
-}
-
-.payment-type-direct .payment-box-wrapper .payment-type-box:nth-child(2) {
-background: #ecfff5 !important;
-border: 0.93px solid #32dd81 !important;
-border-radius: 10px;
-padding: 8px;
-}
-.payment-type-box input[type="radio"] {
-margin-right: 8px;
-flex-shrink: 0;
-}
-.payment-type-box {
-border-radius: 10px;
-border: 0.93px solid #cbcbcb;
-padding: 8px;
-width: 50%;
-}
-.payment-box-wrapper .payment-type-box .payment-type-content h4 {
-color: #838383;
-font-size: 16px;
-font-weight: 700;
-}
-.payment-type-delayed
-.payment-box-wrapper
-.payment-type-box:nth-child(1)
-.payment-type-content
-h4 {
-font-weight: 600 !important;
-color: #000;
-font-size: 16px;
-}
-.payment-type-direct
-.payment-box-wrapper
-.payment-type-box:nth-child(2)
-.payment-type-content
-h4 {
-font-weight: 600 !important;
-color: #000;
-font-size: 16px;
-}
-.woocommerce-checkout #payment ul.payment_methods li label > img:last-child {
-display: none;
-}
-.addon-mac-address {
-display: none;
-}
-.red {
-border: 2px solid red !important;
-}
-
 @media only screen and (max-width: 767px) {
 .addons-head {
     display: flex;
@@ -693,13 +419,6 @@ border: 2px solid red !important;
     align-items: flex-start;
     flex-direction: column;
 }
-}
-
-
-
-
-/* addon css stop */
-@media only screen and (max-width: 767px) {
 
 .checkout-columns {
 display: flex;
@@ -768,15 +487,16 @@ line-height: 1;
 font-size: 20px;
 }
 .woocommerce-checkout #payment ul.payment_methods li {
-    padding: 10px 15px;
+    padding: 16px 12px;
 }
-
+.checkout-right button#place_order{
+        margin: 0px !important;
+}
 .woocommerce-checkout #payment ul.payment_methods li .payment-text {
     font-size: 16px;
     padding-left: 5px;
     font-weight: 600;
 }
-
 
 
 .bitcoin-payments-message-below {
@@ -788,14 +508,11 @@ font-size: 20px;
     font-size: 10px;
 }
 
-}
-
-
-@media (max-width: 768px) {
 .desktop-table {
     display: none; /* Hide for mobile */
 }
 .mobile-table {
     display: table; /* Show for mobile */
 }
+
 }

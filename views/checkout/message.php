@@ -1,13 +1,15 @@
 <?php
-$selected_payment_method = WC()->session->get('chosen_payment_method');
-$cyrpto_check = get_option("{$selected_payment_method}_crypto_check");
+use Codexpert\CheckoutDesigner\Helper;
 
-if ($cyrpto_check == 'yes') {
-    $mics_style = 'display:block';
-    $bit_style = 'display:none';
-} else {
-    $mics_style = 'display:none';
+$selected_payment_method = WC()->session->get('chosen_payment_method');
+$cyrpto_gateway       = Helper::get_option( "checkout-designer_basic", 'crypto_gateway' );
+
+if ($cyrpto_gateway == $selected_payment_method) {
+      $mics_style = 'display:none';
     $bit_style = 'display:block';
+} else {
+      $mics_style = 'display:block';
+    $bit_style = 'display:none';
 }
 ?>
 
@@ -22,16 +24,24 @@ if ($cyrpto_check == 'yes') {
         </div>
     </div>
     <p class="card-payments-message">
-        <img src="<?php echo esc_url('https://iptvutanbox.com/wp-content/uploads/2024/09/info.png'); ?>" alt="">
+        <p class="success-box">
+            <img src="<?php echo esc_url('https://iptvking.co/wp-content/plugins/checkout-designer/assets/img/warning.png'); ?>" alt="">
         <span>
             <?php 
-            echo wp_kses_post('När du betalar med Krypto så skickar du valfri valuta från valfri plånbok eller från någon utav de kryptobörserna vi har guider för.<br><br><strong style="color: red;">OBS! Du ansvarar för avgifterna som plånboken/börsen du skickar ifrån tar. Skickar du ett för lågt belopp så går din beställning inte igenom!</strong>'); 
+            echo wp_kses_post('När du betalar med Krypto så skickar du valfri valuta från valfri plånbok eller från någon utav de kryptobörserna vi har guider för.'); 
             ?>
         </span>
+        </p>
+        <p class="warning-box">
+            <img src="<?php echo esc_url('https://iptvking.co/wp-content/plugins/checkout-designer/assets/img/warning-icon.png'); ?>" alt="">
+        <span>
+            <?php 
+            echo wp_kses_post('OBS! Du ansvarar för avgifterna som plånboken/börsen du skickar ifrån tar. Skickar du ett för lågt belopp så går din beställning inte igenom!'); 
+            ?>
+        </span>
+        </p>
     </p>
-    <a href="#coupon-section" class="mobile-arrow-bottom">
-        <img src="<?php echo esc_url('https://iptvutanbox.com/wp-content/uploads/2024/09/Vector-16.png'); ?>" alt="">
-    </a>
+
 </div>
 
 <div class="crypto-payments-info" style="<?php echo esc_attr($bit_style); ?>">
@@ -45,14 +55,22 @@ if ($cyrpto_check == 'yes') {
         </div>
     </div>
     <p class="crypto-payments-message">
-        <img src="<?php echo esc_url('https://iptvutanbox.com/wp-content/uploads/2024/09/info-1.png'); ?>" alt="">
+       <p class="success-box">
+            <img src="<?php echo esc_url('https://iptvking.co/wp-content/plugins/checkout-designer/assets/img/warning.png'); ?>" alt="">
         <span>
             <?php 
-            echo wp_kses_post('Med detta alternativ genomförs transaktionen i valutan $ (Dollar). Du köper USDC som sedan skickas till oss per automatik.<br/><br/><strong>Om detta betalningsalternativ inte fungerar för dig så kan du skapa en ny order och välja något av våra andra alternativ.</strong>'); 
+            echo wp_kses_post('När du betalar med Krypto så skickar du valfri valuta från valfri plånbok eller från någon utav de kryptobörserna vi har guider för.'); 
             ?>
         </span>
+        </p>
+        <p class="warning-box">
+            <img src="<?php echo esc_url('https://iptvking.co/wp-content/plugins/checkout-designer/assets/img/warning-icon.png'); ?>" alt="">
+        <span>
+            <?php 
+            echo wp_kses_post('OBS! Du ansvarar för avgifterna som plånboken/börsen du skickar ifrån tar. Skickar du ett för lågt belopp så går din beställning inte igenom!'); 
+            ?>
+        </span>
+        </p>
     </p>
-    <a href="#coupon-section" class="mobile-arrow-bottom">
-        <img src="<?php echo esc_url('https://iptvutanbox.com/wp-content/uploads/2024/09/Vector-16.png'); ?>" alt="">
-    </a>
+
 </div>
