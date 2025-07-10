@@ -16,6 +16,8 @@ jQuery(document).ready(function ($) {
     );
 
     function updatePaymentMethodClass() {
+
+        $('.wc_payment_methods li').removeClass('payment-active');
         $('input[name="payment_method"]:checked')
             .closest("li")
             .addClass("payment-active");
@@ -62,8 +64,6 @@ jQuery(document).ready(function ($) {
     $(document.body).on("updated_checkout", function () {
         updateBodyClass();
         updatePaymentMethodClass();
-        const $originalPayment = $('#order_review #payment').clone();
-        $('.checkout-right .woocommerce-checkout-payment').html($originalPayment.html());
     });
 
     function update_totals_based_on_payment_method() {

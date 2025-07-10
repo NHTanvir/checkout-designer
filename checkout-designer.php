@@ -184,6 +184,11 @@ final class Plugin {
 		$ajax->all( 'update_table_on_payment_method_change', 'update_table_on_payment_method_change' );
 		$ajax->all( 'woocommerce_update_cart_item_qty', 'woocommerce_update_cart_item_qty' );
 		$ajax->all( 'add_addon_to_cart', 'add_addon_to_cart' );
+
+		//remove duplicate payment div
+		add_action('wp', function() {
+			remove_action('woocommerce_checkout_order_review', 'woocommerce_checkout_payment', 20);
+		});
 	}
 
 	/**
