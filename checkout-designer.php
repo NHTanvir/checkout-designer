@@ -175,6 +175,7 @@ final class Plugin {
 		$common->action( 'template_redirect', 'redirect_cart_to_checkout' );
 		$common->filter( 'woocommerce_checkout_fields', 'make_all_checkout_fields_optional' );
 		$common->action( 'woocommerce_after_checkout_validation', 'remove_terms_error', 10, 2 );
+		$common->filter( 'woocommerce_order_button_text', 'change_woocommerce_order_button_text', 9999999999 );
 
 		/**
 		 * AJAX related hooks

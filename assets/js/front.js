@@ -6,25 +6,17 @@ jQuery(document).ready(function ($) {
             jQuery('#checkout-designer-modal').hide();
         }
     };
-    
-    $("form.checkout").on(
-        "change",
-        'input[name="payment_method"]',
-        function () {
-            update_totals_based_on_payment_method();
-        }
-    );
+
+    $("form.checkout").on("change", 'input[name="payment_method"]', function () {
+        update_totals_based_on_payment_method();
+    });
 
     function updatePaymentMethodClass() {
-
         $('.wc_payment_methods li').removeClass('payment-active');
-        $('input[name="payment_method"]:checked')
-            .closest("li")
-            .addClass("payment-active");
+        $('input[name="payment_method"]:checked').closest("li").addClass("payment-active");
 
         $(".wc_payment_methods li").each(function () {
             var paymentType = $(this).find('img[data-payment]').attr('data-payment');
-    
             if (paymentType === "crypto") {
                 $(this).addClass("payment-type-blockchain");
             } else if (paymentType) {
@@ -32,48 +24,34 @@ jQuery(document).ready(function ($) {
             }
         });
     }
-    
+
     function updateBodyClass() {
-        
         var selectedMethod = $('input[name="payment_method"]:checked').closest('li').find('img[data-payment]').attr('data-payment');
-    
-        // Remove previous payment method body classes
         $("body").removeClass(function (index, className) {
             return (className.match(/(^|\s)payment-method-\S+/g) || []).join(" ");
         });
-    
+
         if (selectedMethod === "crypto") {
             $("body").addClass("payment-method-crypto");
         } else {
             $("body").addClass("payment-method-card");
         }
     }
-    
-    updateBodyClass();
-    updatePaymentMethodClass();
 
-    $("form.woocommerce-checkout").on(
-        "change",
-        'input[name="payment_method"]',
-        function () {
-            updatePaymentMethodClass();
-            updateBodyClass();
-        }
-    );
+    function updatePlaceOrderButtonText() {
+         var selectedMethod = $('input[name="payment_method"]:checked').closest('li').find('img[data-payment]').attr('data-payment');
+        const cryptoGatewaySlug = 'crypto';
+        const buttonText = selectedMethod === cryptoGatewaySlug
+            ? 'Betala med krypto'
+            : 'Betala med kort';
 
-    $(document.body).on("updated_checkout", function () {
-        updateBodyClass();
-        updatePaymentMethodClass();
-    });
+        $('#place_order').text(buttonText);
+    }
 
     function update_totals_based_on_payment_method() {
         cd_modal(true);
-        var selected_payment_method = $(
-            'input[name="payment_method"]:checked'
-        ).val();
-        $(
-            ".bitcoin-payments-message-below, .normal-payments-message, .crypto-payments-message"
-        ).hide();
+        var selected_payment_method = $('input[name="payment_method"]:checked').val();
+        $(".bitcoin-payments-message-below, .normal-payments-message, .crypto-payments-message").hide();
 
         if (selected_payment_method === "crypto") {
             $(".bitcoin-payments-message-below").show();
@@ -83,7 +61,7 @@ jQuery(document).ready(function ($) {
         }
 
         $.ajax({
-			url: Checkout_Designer.ajaxurl,
+            url: Checkout_Designer.ajaxurl,
             type: "POST",
             data: {
                 action: "update_cart_totals_on_payment_method_change",
@@ -98,7 +76,7 @@ jQuery(document).ready(function ($) {
         });
 
         $.ajax({
-			url: Checkout_Designer.ajaxurl,
+            url: Checkout_Designer.ajaxurl,
             type: "POST",
             data: {
                 action: "update_table_on_payment_method_change",
@@ -114,10 +92,8 @@ jQuery(document).ready(function ($) {
         });
     }
 
-    // Update cart on quantity change
     $(document).on('click', '.qty-increase, .qty-decrease', function () {
         cd_modal(true);
-
         var control = $(this).closest('.quantity-control');
         var display = control.find('.qty-display');
         var cartItemKey = control.data('cart-item-key');
@@ -131,7 +107,7 @@ jQuery(document).ready(function ($) {
         }
 
         if (newQty <= 0) {
-            control.closest('.cart-item-row').remove(); 
+            control.closest('.cart-item-row').remove();
         } else {
             display.text(newQty < 10 ? '0' + newQty : newQty);
         }
@@ -167,14 +143,13 @@ jQuery(document).ready(function ($) {
         var macAddressInput = $(".addon-mac-address");
 
         if (selectedOption === "förnyelse" && !macAddressInput.val()) {
-            macAddressInput.addClass("red"); // Add red border if empty
+            macAddressInput.addClass("red");
             return false;
         } else {
-            macAddressInput.removeClass("red"); // Remove red border if filled
+            macAddressInput.removeClass("red");
             return true;
         }
     }
-
 
     toggleMacAddressInput();
 
@@ -186,37 +161,56 @@ jQuery(document).ready(function ($) {
         }
     });
 
-
     $(".addon-option-select").on("change", function () {
         toggleMacAddressInput();
     });
-	
-	$(".add-addon-to-cart").on("click", function (e) {
-		if (!validateMacAddress()) {
-			e.preventDefault();
-			return;
-		}
-		cd_modal(true);
 
-		var product_id = $('.addon-variation-select').val();
-		var addon_option = $(".addon-option-select").val();
-		var mac_address = $(".addon-mac-address").val();
+    $(".add-addon-to-cart").on("click", function (e) {
+        if (!validateMacAddress()) {
+            e.preventDefault();
+            return;
+        }
 
-		$.ajax({
-			url: Checkout_Designer.ajaxurl,
-			type: "POST",
-			data: {
-				action: "add_addon_to_cart",
-				product_id: product_id,
-				addon_option: addon_option,
-				mac_address: mac_address,
-			},
-			success: function (response) {
-				$(".addon-mac-address").val("");
-				if (response.success) {
-					update_totals_based_on_payment_method();
-				}
-			},
-		});
-	});
+        cd_modal(true);
+
+        var product_id = $('.addon-variation-select').val();
+        var addon_option = $(".addon-option-select").val();
+        var mac_address = $(".addon-mac-address").val();
+
+        $.ajax({
+            url: Checkout_Designer.ajaxurl,
+            type: "POST",
+            data: {
+                action: "add_addon_to_cart",
+                product_id: product_id,
+                addon_option: addon_option,
+                mac_address: mac_address,
+            },
+            success: function (response) {
+                $(".addon-mac-address").val("");
+                if (response.success) {
+                    update_totals_based_on_payment_method();
+                }
+            },
+        });
+    });
+
+    // Initial call
+    updateBodyClass();
+    updatePaymentMethodClass();
+    updatePlaceOrderButtonText();
+
+    // Payment method change
+    $("form.woocommerce-checkout").on("change", 'input[name="payment_method"]', function () {
+        updatePaymentMethodClass();
+        updateBodyClass();
+        updatePlaceOrderButtonText();
+    });
+
+    // After AJAX updates
+    $(document.body).on("updated_checkout", function () {
+        updateBodyClass();
+        updatePaymentMethodClass();
+        updatePlaceOrderButtonText();
+    });
 });

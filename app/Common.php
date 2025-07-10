@@ -86,5 +86,19 @@ class Common extends Base {
 			$errors->remove('terms');
 		}
 	}
+
+	public function change_woocommerce_order_button_text( $button_text ) {
+
+		$chosen_payment_method 	= WC()->session->get('chosen_payment_method'); 
+		$cyrpto_gateway       	= Helper::get_option( "checkout-designer_basic", 'crypto_gateway' );
+
+		if ( $chosen_payment_method == $cyrpto_gateway ) {
+			$button_text = 'Betala med krypto';
+		} else {
+			$button_text = 'Betala med kort';
+		}
+
+		return $button_text;
+	}
 }
 
