@@ -80,7 +80,7 @@ class AJAX extends Base {
 		echo '</thead>';
 		echo '<tbody>';
 
-		foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) {
+		foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
 			$_product 			= $cart_item['data'];
 			$product_id 		= $cart_item['product_id'];
 			$product_product 	= wc_get_product($product_id);
@@ -90,10 +90,10 @@ class AJAX extends Base {
 			$quantity 			= $cart_item['quantity'];
 
 			echo '<tr>';
-				echo '<td><div class="product-title">' . esc_html($product_name) . '</div></td>';
-				echo '<td>' . wc_price($price) . '</td>';
+				echo '<td><div class="product-title">' . esc_html( $product_name ) . '</div></td>';
+				echo '<td>' . wc_price( $price ) . '</td>';
 				echo '<td>';
-					echo '<div class="quantity-control" data-cart-item-key="' . esc_attr($cart_item_key) . '">';
+					echo '<div class="quantity-control" data-cart-item-key="' . esc_attr( $cart_item_key ) . '">';
 						echo '<button type="button" class="qty-decrease">-</button>';
 						echo '<span class="qty-display">' . esc_html( str_pad( $quantity, 2, '0', STR_PAD_LEFT ) ) . '</span>';
 						echo '<button type="button" class="qty-increase">+</button>';
@@ -110,14 +110,14 @@ class AJAX extends Base {
 
 
 	public function woocommerce_update_cart_item_qty() {
-		$cart_item_key = sanitize_text_field($_POST['cart_item_key']);
-		$quantity = intval($_POST['quantity']);
+		$cart_item_key 	= sanitize_text_field( $_POST['cart_item_key'] );
+		$quantity 		= intval( $_POST['quantity'] );
 
-		if ($cart_item_key) {
-			if ($quantity > 0) {
-				WC()->cart->set_quantity($cart_item_key, $quantity);
+		if ( $cart_item_key ) {
+			if ( $quantity > 0 ) {
+				WC()->cart->set_quantity( $cart_item_key, $quantity );
 			} else {
-				WC()->cart->remove_cart_item($cart_item_key);
+				WC()->cart->remove_cart_item( $cart_item_key );
 			}
 
 			WC()->cart->calculate_totals();
@@ -128,22 +128,22 @@ class AJAX extends Base {
 
 
 	public function add_addon_to_cart() {
-		if (!isset($_POST['product_id'])) {
-			wp_send_json_error('Missing product ID');
+		if ( ! isset( $_POST['product_id'] ) ) {
+			wp_send_json_error( 'Missing product ID' );
 		}
 
-		$product_id   = intval($_POST['product_id']);
-		$addon_option = sanitize_text_field($_POST['addon_option'] ?? '');
-		$mac_address  = sanitize_text_field($_POST['mac_address'] ?? '');
+		$product_id   = intval( $_POST['product_id'] );
+		$addon_option = sanitize_text_field( $_POST['addon_option'] ?? '' );
+		$mac_address  = sanitize_text_field( $_POST['mac_address'] ?? '' );
 		$quantity     = 1;
 
-		$cart_item_key = WC()->cart->add_to_cart($product_id, $quantity);
+		$cart_item_key = WC()->cart->add_to_cart( $product_id, $quantity );
 
-		if ($cart_item_key) {
-			WC()->cart->cart_contents[$cart_item_key]['addon_option'] = $addon_option;
-			WC()->cart->cart_contents[$cart_item_key]['mac_address'] = $mac_address;
+		if ( $cart_item_key ) {
+			WC()->cart->cart_contents[$cart_item_key]['addon_option'] 	= $addon_option;
+			WC()->cart->cart_contents[$cart_item_key]['mac_address'] 	= $mac_address;
 
-			wp_send_json_success(['cart_item_key' => $cart_item_key]);
+			wp_send_json_success( ['cart_item_key' => $cart_item_key] );
 		} else {
 			wp_send_json_error('Failed to add product to cart');
 		}
