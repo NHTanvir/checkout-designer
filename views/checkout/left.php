@@ -1,15 +1,16 @@
 <?php
 use Codexpert\CheckoutDesigner\Helper;
-$selected_payment_method = WC()->session->get('chosen_payment_method');
-$checkout_heading = Helper::get_option( 'checkout_designer_basic','checkout_heading', 'Varukorg' );
-do_action( 'wpml_register_single_string', 'checkout-designer', 'Label', $checkout_heading );
-
+$selected_payment_method 	= WC()->session->get('chosen_payment_method');
+$checkout_heading 			= Helper::get_option( 'checkout_designer_basic','checkout_heading', 'Varukorg' );
 ?>
 
 <div class="checkout-columns">
 	<div class="checkout-left">
 		<h3>
-			<?php echo apply_filters( 'wpml_translate_single_string', $checkout_heading, 'checkout-designer', 'Label' ); ?>
+			<?php
+				do_action( 'wpml_register_single_string', 'checkout-designer', 'checkout_heading', $checkout_heading );
+				echo apply_filters( 'wpml_translate_single_string', $checkout_heading, 'checkout-designer', 'checkout_heading' );
+			 ?>
 		</h3>
 		<div class="table-wrapper">
             <table class="product-table">
