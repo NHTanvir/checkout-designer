@@ -91,6 +91,13 @@ class Settings extends Base {
 							'type'      => 'text',
 							'desc'      => __( 'This is checkout Heading text field.', 'checkout-designer' ),
 						 	'default'   => 'Varukorg'
+						],
+						'addon_heading' => [
+							'id'        => 'addon_heading',
+							'label'     => __( 'addon Heading text', 'checkout-designer' ),
+							'type'      => 'text',
+							'desc'      => __( 'This is addon Heading text field.', 'checkout-designer' ),
+						 	'default'   => 'Valfritt Extra konton'
 						 ],
 						// 'sample_number' => [
 						// 	'id'      => 'sample_number',

@@ -1,7 +1,8 @@
 <?php
 use Codexpert\CheckoutDesigner\Helper;
 $selected_payment_method 	= WC()->session->get('chosen_payment_method');
-$checkout_heading 			= Helper::get_option( 'checkout_designer_basic','checkout_heading', 'Varukorg' );
+$checkout_heading 			= Helper::get_option( 'checkout-designer_basic','checkout_heading', 'Varukorg' );
+$addon_heading 				= Helper::get_option( 'checkout-designer_basic','addon_heading', 'Valfritt Extra konton' );
 ?>
 
 <div class="checkout-columns">
@@ -50,7 +51,12 @@ $checkout_heading 			= Helper::get_option( 'checkout_designer_basic','checkout_h
 
 		<div class="addons-section">
 			<div class="addons-head">
-				<h6 class="method"><?php esc_html_e( 'Valfritt Extra konton', 'checkout-designer' ); ?></h6>
+				<h6 class="method">
+					<?php
+						do_action( 'wpml_register_single_string', 'checkout-designer', 'addon_heading', $addon_heading );
+						echo apply_filters( 'wpml_translate_single_string', $addon_heading, 'checkout-designer', 'addon_heading' );
+					?>
+				</h6>
 				<p>
 					<img src="<?php echo esc_url( 'https://iptvking.co/wp-content/plugins/checkout-designer/assets/img/warning.png' ); ?>" alt="">
 					<?php esc_html_e( 'Du kan lägga till hur många extra konton du vill.', 'checkout-designer' ); ?>
