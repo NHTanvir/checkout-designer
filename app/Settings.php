@@ -85,16 +85,13 @@ class Settings extends Base {
 							// 'class'     => '',
 							'disabled'  => false, // true|false
 						],
-						// 'sample_text' => [
-						// 	'id'        => 'sample_text',
-						// 	'label'     => __( 'Text Field', 'checkout-designer' ),
-						// 	'type'      => 'text',
-						// 	'desc'      => __( 'This is a text field.', 'checkout-designer' ),
-						// 	// 'class'     => '',
-						// 	'default'   => 'Hello World!',
-						// 	'readonly'  => false, // true|false
-						// 	'disabled'  => false, // true|false
-						// ],
+						'checkout_heading' => [
+							'id'        => 'checkout_heading',
+							'label'     => __( 'checkout Heading text', 'checkout-designer' ),
+							'type'      => 'text',
+							'desc'      => __( 'This is checkout Heading text field.', 'checkout-designer' ),
+						 	'default'   => 'Varukorg'
+						 ],
 						// 'sample_number' => [
 						// 	'id'      => 'sample_number',
 						// 	'label'     => __( 'Number Field', 'checkout-designer' ),
