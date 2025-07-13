@@ -35,36 +35,35 @@ class AJAX extends Base {
 	public function update_cart_totals_on_payment_method_change() {
 
 		$selected_payment_method 	= sanitize_text_field( $_POST['payment_method'] );
-		$cyrpto_gateway       		= Helper::get_option( "checkout-designer_basic", 'crypto_gateway' );
+		$crypto_gateway 			= Helper::get_option( "checkout-designer_basic", 'crypto_gateway' );
+		$table_heading     			= Helper::get_option( 'checkout-designer_basic', 'table_heading', 'Fakturauppgifter' );
 
 		if ( $selected_payment_method ) {
 			WC()->session->set( 'chosen_payment_method', $selected_payment_method );
 		}
 
-		foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
-			$_product 		= $cart_item['data'];
-			$product_name 	= $_product->get_name();
-			
-		}
+		do_action( 'wpml_register_single_string', 'checkout-designer', 'table_heading', $table_heading );
 
-		if ( $selected_payment_method == $cyrpto_gateway ) {
-   		 	echo '<h4>' . __( 'Fakturauppgifter', 'checkout-designer' ) . '</h4>';
+		$table_heading = apply_filters( 'wpml_translate_single_string', $table_heading, 'checkout-designer', 'table_heading' );
+
+		if ( $selected_payment_method == $crypto_gateway ) {
+			echo '<h4>' . esc_html( $table_heading ) . '</h4>';
 			echo '<table class="totals-table">';
 			echo '<tbody>';
-			echo '<tr><td>Pris | SEK</td><td>' . do_shortcode('[total-price-sek]') . '</td></tr>';
+			echo '<tr><td>' . esc_html__( 'Pris | SEK', 'checkout-designer' ) . '</td><td>' . do_shortcode('[total-price-sek]') . '</td></tr>';
 			echo '</tbody>';
 			echo '</table>';
-		} else{
-			echo '<h4>' . __( 'Fakturauppgifter', 'checkout-designer' ) . '</h4>';
+		} else {
+			echo '<h4>' . esc_html( $table_heading ) . '</h4>';
 			echo '<table class="totals-table">';
 			echo '<tbody>';
-			echo '<tr><td>Pris | SEK</td><td>' . do_shortcode('[total-price-sek]') . '</td></tr>';
-			echo '<tr><td>Kortavgift - 10%</td><td>' . do_shortcode('[total-fee-sek]') . '</td></tr>'; 
-			echo '<tr><td>Totalt</td><td>' . do_shortcode('[total-price-eur]') . '</td></tr>';
+			echo '<tr><td>' . esc_html__( 'Pris | SEK', 'checkout-designer' ) . '</td><td>' . do_shortcode('[total-price-sek]') . '</td></tr>';
+			echo '<tr><td>' . esc_html__( 'Kortavgift - 10%', 'checkout-designer' ) . '</td><td>' . do_shortcode('[total-fee-sek]') . '</td></tr>';
+			echo '<tr><td>' . esc_html__( 'Totalt', 'checkout-designer' ) . '</td><td>' . do_shortcode('[total-price-eur]') . '</td></tr>';
 			echo '</tbody>';
 			echo '</table>';
-
 		}
+
 		wp_die();
 	}
 
