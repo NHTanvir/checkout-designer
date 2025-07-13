@@ -99,6 +99,37 @@ class Settings extends Base {
 							'desc'      => __( 'This is addon Heading text field.', 'checkout-designer' ),
 						 	'default'   => 'Valfritt Extra konton'
 						 ],
+						'extra_accounts_text' => [
+							'id'      => 'extra_accounts_text',
+							'label'   => __( 'Extra accounts info text', 'checkout-designer' ),
+							'type'    => 'text',
+							'desc'    => __( 'Text shown above addon options.', 'checkout-designer' ),
+							'default' => 'Du kan lägga till hur många extra konton du vill.',
+						],
+
+						'add_button_text' => [
+							'id'      => 'add_button_text',
+							'label'   => __( 'Add button text', 'checkout-designer' ),
+							'type'    => 'text',
+							'desc'    => __( 'Text for the “Add” button.', 'checkout-designer' ),
+							'default' => 'Lägg till',
+						],
+
+						'payment_heading' => [
+							'id'      => 'payment_heading',
+							'label'   => __( 'Payment section heading', 'checkout-designer' ),
+							'type'    => 'text',
+							'desc'    => __( 'Heading for the payment section.', 'checkout-designer' ),
+							'default' => 'Betalning',
+						],
+
+						'method_label' => [
+							'id'      => 'method_label',
+							'label'   => __( 'Payment method label', 'checkout-designer' ),
+							'type'    => 'text',
+							'desc'    => __( 'Label for payment method selection.', 'checkout-designer' ),
+							'default' => 'Metod',
+						],
 						// 'sample_number' => [
 						// 	'id'      => 'sample_number',
 						// 	'label'     => __( 'Number Field', 'checkout-designer' ),
