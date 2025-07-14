@@ -70,6 +70,10 @@ class Common extends Base {
 			wp_redirect( wc_get_checkout_url() );
 			exit;
 		}
+		if ( is_checkout() && !is_wc_endpoint_url() && WC()->cart->is_empty() ) {
+			wp_safe_redirect( wc_get_page_permalink('shop') );
+			exit;
+		}
 	}
 
 	public function make_all_checkout_fields_optional ($fields ) {
@@ -79,6 +83,25 @@ class Common extends Base {
 			}
 		}
 		return $fields;
+	}
+
+	public function cd_map_custom_to_billing() {
+
+		if ( ! empty( $_POST['cd_name'] ) ) {
+			$parts = explode( ' ', sanitize_text_field( wp_unslash( $_POST['cd_name'] ) ), 2 );
+			$_POST['billing_first_name'] = $parts[0];
+			if ( ! empty( $parts[1] ) ) {
+				$_POST['billing_last_name'] = $parts[1];
+			}
+		}
+
+		if ( ! empty( $_POST['cd_email'] ) ) {
+			$_POST['billing_email'] = sanitize_email( wp_unslash( $_POST['cd_email'] ) );
+		}
+
+		if ( isset( $_POST['cd_phone'] ) ) {
+			$_POST['billing_phone'] = sanitize_text_field( wp_unslash( $_POST['cd_phone'] ) );
+		}
 	}
 
 	public function remove_terms_error( $data, $errors ) {
@@ -111,6 +134,29 @@ class Common extends Base {
 		return $cart_item_data;
 	}
 
+	public function cd_save_custom_fields_to_order_meta( $order, $data ) {
+
+		if ( isset( $_POST['cd_name'] ) ) {
+			$order->update_meta_data( '_cd_name', sanitize_text_field( $_POST['cd_name'] ) );
+		}
+
+		if ( isset( $_POST['cd_phone'] ) ) {
+			$order->update_meta_data( '_cd_phone', sanitize_text_field( $_POST['cd_phone'] ) );
+		}
+
+		if ( isset( $_POST['cd_email'] ) ) {
+			$order->update_meta_data( '_cd_email', sanitize_email( $_POST['cd_email'] ) );
+		}
+
+		if ( isset( $_POST['cd_mac'] ) ) {
+			$order->update_meta_data( '_cd_mac', sanitize_text_field( $_POST['cd_mac'] ) );
+		}
+
+		if ( isset( $_POST['cd_adult'] ) ) {
+			$order->update_meta_data( '_cd_adult', sanitize_text_field( $_POST['cd_adult'] ) );
+		}
+	}
+
 	public function save_custom_data_to_order_meta( $item, $cart_item_key, $values, $order ) {
 		if ( isset( $values['addon_option'] ) ) {
 			$item->add_meta_data( 'Addon Option', $values['addon_option'], true );
@@ -119,6 +165,11 @@ class Common extends Base {
 		if ( isset( $values['mac_address'] ) ) {
 			$item->add_meta_data( 'MAC Address', $values['mac_address'], true );
 		}
+	}
+
+	public function cd_display_custom_fields_in_admin( $order ) {
+		echo '<p><strong>' . __( 'MAC‑address', 'checkout-designer' ) . ':</strong> ' . esc_html( $order->get_meta( '_cd_mac' ) ) . '</p>';
+		echo '<p><strong>' . __( 'Adult Content', 'checkout-designer' ) . ':</strong> ' . esc_html( $order->get_meta( '_cd_adult' ) ) . '</p>';
 	}
 
 	public function display_custom_order_item_meta_in_admin( $item_id, $item, $order ) {
