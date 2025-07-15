@@ -39,22 +39,4 @@ class Admin extends Base {
 	public function i18n() {
 		load_plugin_textdomain( 'checkout-designer', false, Checkout_Designer_DIR . '/languages/' );
 	}
-
-	/**
-	 * Enqueue JavaScripts and stylesheets
-	 */
-	public function enqueue_scripts() {
-		$min = defined( 'Checkout_Designer_DEBUG' ) && Checkout_Designer_DEBUG ? '' : '.min';
-		
-		wp_enqueue_style( $this->slug, plugins_url( "/assets/css/admin{$min}.css", Checkout_Designer ), '', $this->version, 'all' );
-
-		wp_enqueue_script( $this->slug, plugins_url( "/assets/js/admin{$min}.js", Checkout_Designer ), [ 'jquery' ], $this->version, true );
-	}
-
-	public function modal() {
-		echo '
-		<div id="checkout-designer-modal" style="display: none">
-			<img id="checkout-designer-modal-loader" src="' . esc_attr( Checkout_Designer_ASSET . '/img/loader.gif' ) . '" />
-		</div>';
-	}
 }

@@ -133,7 +133,6 @@ final class Plugin {
 			 */
 			$admin = new App\Admin( $this->plugin );
 			$admin->action( 'plugins_loaded', 'i18n' );
-			$admin->action( 'admin_enqueue_scripts', 'enqueue_scripts' );
 
 			/**
 			 * Settings related hooks
@@ -152,12 +151,6 @@ final class Plugin {
 			$front->action( 'wp_enqueue_scripts', 'enqueue_scripts' );
 			$front->filter( 'body_class', 'add_payment_method_class' );
 			$front->filter( 'woocommerce_gateway_icon', 'payment_gateway_icon', 30, 2 );
-
-			/**
-			 * Shortcode related hooks
-			 */
-			$shortcode = new App\Shortcode( $this->plugin );
-			$shortcode->register( 'my_shortcode', 'my_shortcode' );
 
 		endif;
 		

@@ -120,5 +120,4 @@ class Front extends Base {
 
 		return $icon;
 	}
-
 }
