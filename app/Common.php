@@ -111,14 +111,24 @@ class Common extends Base {
 	}
 
 	public function change_woocommerce_order_button_text( $button_text ) {
+		$chosen_payment_method = WC()->session->get( 'chosen_payment_method' );
+		$crypto_gateway        = Helper::get_option( 'checkout-designer_basic', 'crypto_gateway' );
 
-		$chosen_payment_method 	= WC()->session->get('chosen_payment_method'); 
-		$cyrpto_gateway       	= Helper::get_option( "checkout-designer_basic", 'crypto_gateway' );
+		$crypto_button_text = Helper::get_option( 'checkout-designer_basic', 'crypto_button_text', 'Betala med krypto' );
+		$card_button_text   = Helper::get_option( 'checkout-designer_basic', 'card_button_text', 'Betala med kort' );
 
-		if ( $chosen_payment_method == $cyrpto_gateway ) {
-			$button_text = 'Betala med krypto';
+		do_action( 'wpml_register_single_string', 'checkout-designer', 'crypto_button_text', $crypto_button_text );
+		do_action( 'wpml_register_single_string', 'checkout-designer', 'card_button_text', $card_button_text );
+
+		if ( function_exists( 'wpml_translate_single_string' ) ) {
+			$crypto_button_text = wpml_translate_single_string( $crypto_button_text, 'checkout-designer', 'crypto_button_text' );
+			$card_button_text   = wpml_translate_single_string( $card_button_text, 'checkout-designer', 'card_button_text' );
+		}
+
+		if ( $crypto_gateway === $chosen_payment_method ) {
+			$button_text = $crypto_button_text;
 		} else {
-			$button_text = 'Betala med kort';
+			$button_text = $card_button_text;
 		}
 
 		return $button_text;

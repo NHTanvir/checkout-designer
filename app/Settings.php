@@ -183,6 +183,20 @@ class Settings extends Base {
 							'desc'    => __( 'Warning message shown for crypto payments.', 'checkout-designer' ),
 							'default' => 'OBS! Du ansvarar för avgifterna som plånboken/börsen du skickar ifrån tar. Skickar du ett för lågt belopp så går din beställning inte igenom!',
 						],
+						'crypto_button_text' => [
+							'id'      => 'crypto_button_text',
+							'label'   => __( 'Crypto Button Text', 'checkout-designer' ),
+							'type'    => 'text',
+							'desc'    => __( 'Button text for crypto payments.', 'checkout-designer' ),
+							'default' => 'Betala med krypto',
+						],
+						'card_button_text' => [
+							'id'      => 'card_button_text',
+							'label'   => __( 'Card Button Text', 'checkout-designer' ),
+							'type'    => 'text',
+							'desc'    => __( 'Button text for card payments.', 'checkout-designer' ),
+							'default' => 'Betala med kort',
+						],
 					]
 				],
 				

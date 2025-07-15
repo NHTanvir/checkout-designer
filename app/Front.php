@@ -42,10 +42,21 @@ class Front extends Base {
 		wp_enqueue_style( $this->slug, plugins_url( "/assets/css/front{$min}.css", Checkout_Designer ), '', time(), 'all' );
 
 		wp_enqueue_script( $this->slug, plugins_url( "/assets/js/front{$min}.js", Checkout_Designer ), [ 'jquery' ], time(), true );
+
+		$crypto_button_text = Helper::get_option( 'checkout-designer_basic', 'crypto_button_text', 'Betala med krypto' );
+		$card_button_text   = Helper::get_option( 'checkout-designer_basic', 'card_button_text', 'Betala med kort' );
+
+		do_action( 'wpml_register_single_string', 'checkout-designer', 'crypto_button_text', $crypto_button_text );
+		do_action( 'wpml_register_single_string', 'checkout-designer', 'card_button_text', $card_button_text );
+
+		$crypto_button_text_translated = apply_filters( 'wpml_translate_single_string', $crypto_button_text, 'checkout-designer', 'crypto_button_text' );
+		$card_button_text_translated   = apply_filters( 'wpml_translate_single_string', $card_button_text, 'checkout-designer', 'card_button_text' );
 		
 		$localized = [
-			'ajaxurl'	=> admin_url( 'admin-ajax.php' ),
-			'_wpnonce'	=> wp_create_nonce(),
+			'ajaxurl'				=> admin_url( 'admin-ajax.php' ),
+			'_wpnonce'				=> wp_create_nonce(),
+			'crypto_button_text' 	=> $crypto_button_text_translated,
+			'card_button_text'   	=> $card_button_text_translated
 		];
 		wp_localize_script( $this->slug, 'Checkout_Designer', apply_filters( "{$this->slug}-localized", $localized ) );
 	}
@@ -110,16 +121,4 @@ class Front extends Base {
 		return $icon;
 	}
 
-	public function custom_woocommerce_order_button_text( $button_text ) {
-		$chosen_payment_method = WC()->session->get( 'chosen_payment_method' );
-		$crypto_gateway        = Helper::get_option( 'checkout-designer_basic', 'crypto_gateway' );
-
-		if ( $crypto_gateway === $chosen_payment_method ) {
-			$button_text = __( 'Betala med krypto', 'checkout-designer' );
-		} else {
-			$button_text = __( 'Betala med kort', 'checkout-designer' );
-		}
-
-		return $button_text;
-	}
 }

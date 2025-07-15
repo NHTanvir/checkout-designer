@@ -152,7 +152,6 @@ final class Plugin {
 			$front->action( 'wp_enqueue_scripts', 'enqueue_scripts' );
 			$front->filter( 'body_class', 'add_payment_method_class' );
 			$front->filter( 'woocommerce_gateway_icon', 'payment_gateway_icon', 30, 2 );
-			$front->filter( 'woocommerce_order_button_text', 'custom_woocommerce_order_button_text', 9999999999 );
 
 			/**
 			 * Shortcode related hooks

@@ -41,9 +41,7 @@ jQuery(document).ready(function ($) {
     function updatePlaceOrderButtonText() {
          var selectedMethod = $('input[name="payment_method"]:checked').closest('li').find('img[data-payment]').attr('data-payment');
         const cryptoGatewaySlug = 'crypto';
-        const buttonText = selectedMethod === cryptoGatewaySlug
-            ? 'Betala med krypto'
-            : 'Betala med kort';
+        const buttonText = selectedMethod === cryptoGatewaySlug ? Checkout_Designer.crypto_button_text : Checkout_Designer.card_button_text;
 
         $('#place_order').text(buttonText);
     }
