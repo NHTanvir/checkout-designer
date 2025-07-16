@@ -14,6 +14,54 @@ $table_heading     	 = Helper::get_option( 'checkout-designer_basic', 'table_hea
 
 <div class="checkout-columns">
     <div class="checkout-left">
+        <?php
+        $checkout = WC()->checkout();
+
+        woocommerce_form_field( 'cd_name', array(
+            'type'        => 'text',
+            'label'       => __( 'Name', 'checkout-designer' ),
+            'required'    => true,
+            'class'       => array( 'form-row-wide' ),
+        ), $checkout->get_value( 'cd_name' ) );
+
+
+        woocommerce_form_field( 'cd_phone', array(
+            'type'        => 'tel',
+            'label'       => __( 'Phone', 'checkout-designer' ),
+            'required'    => false,
+            'class'       => array( 'form-row-wide' ),
+        ), $checkout->get_value( 'cd_phone' ) );
+
+
+        woocommerce_form_field( 'cd_email', array(
+            'type'        => 'email',
+            'label'       => __( 'Email', 'checkout-designer' ),
+            'required'    => true,
+            'class'       => array( 'form-row-wide' ),
+        ), $checkout->get_value( 'cd_email' ) );
+
+        woocommerce_form_field( 'cd_mac', array(
+            'type'        => 'text',
+            'label'       => __( 'MAC‑address', 'checkout-designer' ),
+            'required'    => false,
+            'class'       => array( 'form-row-wide' ),
+            'placeholder' => '00:1A:2B:3C:4D:5E',
+            'description' => __( 'Only use this field if you have a Formuler, TVIP, MAG or Smart STP app. Only accepts MAC that start with 10:27, 00:1A or 00:1E.', 'checkout-designer' ),
+        ), $checkout->get_value( 'cd_mac' ) );
+
+
+        woocommerce_form_field( 'cd_adult', array(
+            'type'        => 'select',
+            'label'       => __( 'Adult content', 'checkout-designer' ),
+            'required'    => true,
+            'class'       => array( 'form-row-wide' ),
+            'options'     => array(
+                ''    => __( '– Please choose –', 'checkout-designer' ),
+                'yes' => __( 'Yes',             'checkout-designer' ),
+                'no'  => __( 'No',              'checkout-designer' ),
+            ),
+        ), $checkout->get_value( 'cd_adult' ) );
+        ?>
         <h3>
             <?php
             do_action( 'wpml_register_single_string', 'checkout-designer', 'checkout_heading', $checkout_heading );
