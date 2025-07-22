@@ -2,7 +2,14 @@
 use Codexpert\CheckoutDesigner\Helper;
 
 $selected_payment_method = WC()->session->get( 'chosen_payment_method' );
-
+$name                = Helper::get_option( 'checkout_designer_user_info', 'name', 'name' );
+$phone               = Helper::get_option( 'checkout_designer_user_info', 'phone', 'phone' );
+$email               = Helper::get_option( 'checkout_designer_user_info', 'email', 'email' );
+$mac                 = Helper::get_option( 'checkout_designer_user_info', 'mac', 'MAC‑address ' );
+$adult               = Helper::get_option( 'checkout_designer_user_info', 'adult', 'Adult content' );
+$choose              = Helper::get_option( 'checkout_designer_user_info', 'choose', '--Please choose--' );
+$yes                 = Helper::get_option( 'checkout_designer_user_info', 'yes', 'Yes' );
+$no                  = Helper::get_option( 'checkout_designer_user_info', 'no', 'No' );
 $checkout_heading    = Helper::get_option( 'checkout_designer_table', 'checkout_heading', 'Varukorg' );
 $addon_heading       = Helper::get_option( 'checkout_designer_table', 'addon_heading', 'Valfritt Extra konton' );
 $extra_accounts_text = Helper::get_option( 'checkout_designer_table', 'extra_accounts_text', 'Du kan lägga till hur många extra konton du vill.' );
@@ -10,6 +17,24 @@ $add_button_text     = Helper::get_option( 'checkout_designer_table', 'add_butto
 $payment_heading     = Helper::get_option( 'checkout_designer_table', 'payment_heading', 'Betalning' );
 $method_label        = Helper::get_option( 'checkout_designer_table', 'method_label', 'Metod' );
 $table_heading     	 = Helper::get_option( 'checkout_designer_table', 'table_heading', 'Fakturauppgifter' );
+
+do_action( 'wpml_register_single_string', 'checkout-designer', 'cd_name', $name );
+do_action( 'wpml_register_single_string', 'checkout-designer', 'cd_phone', $phone );
+do_action( 'wpml_register_single_string', 'checkout-designer', 'cd_email', $email );
+do_action( 'wpml_register_single_string', 'checkout-designer', 'cd_mac', $mac );
+do_action( 'wpml_register_single_string', 'checkout-designer', 'cd_adult', $adult );
+do_action( 'wpml_register_single_string', 'checkout-designer', 'cd_choose', $choose );
+do_action( 'wpml_register_single_string', 'checkout-designer', 'cd_yes', $yes );
+do_action( 'wpml_register_single_string', 'checkout-designer', 'cd_no', $no );
+
+$name_text_translated   = apply_filters( 'wpml_translate_single_string', $name, 'checkout-designer', 'cd_name' );
+$phone_text_translated  = apply_filters( 'wpml_translate_single_string', $phone, 'checkout-designer', 'cd_phone' );
+$email_text_translated  = apply_filters( 'wpml_translate_single_string', $email, 'checkout-designer', 'cd_email' );
+$mac_text_translated    = apply_filters( 'wpml_translate_single_string', $mac, 'checkout-designer', 'cd_mac' );
+$adult_text_translated  = apply_filters( 'wpml_translate_single_string', $adult, 'checkout-designer', 'cd_adult' );
+$choose_text_translated = apply_filters( 'wpml_translate_single_string', $choose, 'checkout-designer', 'cd_choose' );
+$yes_text_translated    = apply_filters( 'wpml_translate_single_string', $yes, 'checkout-designer', 'cd_yes' );
+$no_text_translated     = apply_filters( 'wpml_translate_single_string', $no, 'checkout-designer', 'cd_no' );
 ?>
 
 <div class="checkout-columns">
@@ -19,15 +44,14 @@ $table_heading     	 = Helper::get_option( 'checkout_designer_table', 'table_hea
 
         woocommerce_form_field( 'cd_name', array(
             'type'        => 'text',
-            'label'       => __( 'Name', 'checkout-designer' ),
+            'label'       => $name,
             'required'    => true,
             'class'       => array( 'form-row-wide' ),
         ), $checkout->get_value( 'cd_name' ) );
 
-
         woocommerce_form_field( 'cd_phone', array(
             'type'        => 'tel',
-            'label'       => __( 'Phone', 'checkout-designer' ),
+            'label'       => $phone,
             'required'    => false,
             'class'       => array( 'form-row-wide' ),
         ), $checkout->get_value( 'cd_phone' ) );
@@ -35,14 +59,14 @@ $table_heading     	 = Helper::get_option( 'checkout_designer_table', 'table_hea
 
         woocommerce_form_field( 'cd_email', array(
             'type'        => 'email',
-            'label'       => __( 'Email', 'checkout-designer' ),
+            'label'       => $email,
             'required'    => true,
             'class'       => array( 'form-row-wide' ),
         ), $checkout->get_value( 'cd_email' ) );
 
         woocommerce_form_field( 'cd_mac', array(
             'type'        => 'text',
-            'label'       => __( 'MAC‑address', 'checkout-designer' ),
+            'label'       => $mac,
             'required'    => false,
             'class'       => array( 'form-row-wide' ),
             'placeholder' => '00:1A:2B:3C:4D:5E',
@@ -52,13 +76,13 @@ $table_heading     	 = Helper::get_option( 'checkout_designer_table', 'table_hea
 
         woocommerce_form_field( 'cd_adult', array(
             'type'        => 'select',
-            'label'       => __( 'Adult content', 'checkout-designer' ),
+            'label'       => $adult,
             'required'    => true,
             'class'       => array( 'form-row-wide' ),
             'options'     => array(
-                ''    => __( '– Please choose –', 'checkout-designer' ),
-                'yes' => __( 'Yes',             'checkout-designer' ),
-                'no'  => __( 'No',              'checkout-designer' ),
+                ''    => $choose_text_translated,
+                'yes' => $yes_text_translated,
+                'no'  => $no_text_translated,
             ),
         ), $checkout->get_value( 'cd_adult' ) );
         ?>

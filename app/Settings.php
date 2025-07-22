@@ -37,27 +37,76 @@ class Settings extends Base {
 		$settings = [
 			'id'            => $this->slug,
 			'label'         => $this->name,
-			'title'         => {$this->name},
+			'title'         => $this->name,
 			'header'        => $this->name,
 			'sections'      => [
 				'checkout_designer_user_info'	=> [
-					'id'        => 'checkout_designer_table',
-					'label'     => __( 'Table texts', 'checkout-designer' ),
+					'id'        => 'checkout_designer_user_info',
+					'label'     => __( 'User info texts', 'checkout-designer' ),
 					'icon'      => 'dashicons-admin-tools',
 					'sticky'	=> false,
 					'fields'    => [
-						'checkout_heading' => [
-							'id'        => 'checkout_heading',
-							'label'     => __( 'checkout Heading text', 'checkout-designer' ),
+						'name' => [
+							'id'        => 'name',
+							'label'     => __( 'Name text', 'checkout-designer' ),
 							'type'      => 'text',
-							'desc'      => __( 'This is checkout Heading text field.', 'checkout-designer' ),
-						 	'default'   => 'Varukorg'
+							'desc'      => __( 'This is Name text field.', 'checkout-designer' ),
+						 	'default'   => 'Name'
+						],
+						'phone' => [
+							'id'        => 'phone',
+							'label'     => __( 'Phone text', 'checkout-designer' ),
+							'type'      => 'text',
+							'desc'      => __( 'This is Phone text field.', 'checkout-designer' ),
+						 	'default'   => 'Phone(optional)'
+						],
+						'email' => [
+							'id'        => 'email',
+							'label'     => __( 'Email text', 'checkout-designer' ),
+							'type'      => 'text',
+							'desc'      => __( 'This is Email text field.', 'checkout-designer' ),
+						 	'default'   => 'Email'
+						],
+						'mac' => [
+							'id'        => 'mac',
+							'label'     => __( 'MAC text', 'checkout-designer' ),
+							'type'      => 'text',
+							'desc'      => __( 'This is MAC text field.', 'checkout-designer' ),
+						 	'default'   => 'MAC‑address(optional)'
+						],
+						'adult' => [
+							'id'        => 'adult',
+							'label'     => __( 'Adult text', 'checkout-designer' ),
+							'type'      => 'text',
+							'desc'      => __( 'This is Adult text field.', 'checkout-designer' ),
+						 	'default'   => 'Adult content'
+						],
+						'choose' => [
+							'id'        => 'choose',
+							'label'     => __( 'Choose text', 'checkout-designer' ),
+							'type'      => 'text',
+							'desc'      => __( 'This is Choose text field.', 'checkout-designer' ),
+						 	'default'   => '--Please choose--'
+						],
+						'yes' => [
+							'id'        => 'yes',
+							'label'     => __( 'Adult Yes text', 'checkout-designer' ),
+							'type'      => 'text',
+							'desc'      => __( 'This is Adult Yes text field.', 'checkout-designer' ),
+						 	'default'   => 'Yes'
+						],
+						'no' => [
+							'id'        => 'no',
+							'label'     => __( 'Adult No text', 'checkout-designer' ),
+							'type'      => 'text',
+							'desc'      => __( 'This is Adult No text field.', 'checkout-designer' ),
+						 	'default'   => 'No'
 						]
 					]
 				],
 				'checkout_designer_table'	=> [
 					'id'        => 'checkout_designer_table',
-					'label'     => __( 'Table texts', 'checkout-designer' ),
+					'label'     => __( 'Others texts', 'checkout-designer' ),
 					'icon'      => 'dashicons-admin-tools',
 					'sticky'	=> false,
 					'fields'    => [

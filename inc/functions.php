@@ -40,3 +40,9 @@ function custom_coupon_form() {
     </div>
     <?php
 }
+add_filter( 'woocommerce_form_field', function( $field, $key, $args, $value ) {
+    if ( in_array( $key, [ 'cd_phone', 'cd_mac' ] ) ) {
+        $field = preg_replace( '/\s*<span class="optional">\(.+?\)<\/span>/', '', $field );
+    }
+    return $field;
+}, 10, 4 );

@@ -175,7 +175,6 @@ final class Plugin {
 		$common->action( 'woocommerce_admin_order_data_after_billing_address', 'cd_display_custom_fields_in_admin', 10, 1 );
 		$common->action( 'woocommerce_before_order_itemmeta', 'display_custom_order_item_meta_in_admin', 10, 3 );
 
-
 		/**
 		 * AJAX related hooks
 		 */
