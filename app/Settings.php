@@ -27,9 +27,8 @@ class Settings extends Base {
 	}
 	
 	public function init_menu() {
-		$gateway_options = [];
-
-		$gateways = WC()->payment_gateways->payment_gateways();
+		$gateway_options 	= [];
+		$gateways 			= WC()->payment_gateways->payment_gateways();
 
 		foreach ( $gateways as $gateway_id => $gateway ) {
 			 $gateway_options[ $gateway_id ] = $gateway->method_title;
@@ -38,42 +37,23 @@ class Settings extends Base {
 		$settings = [
 			'id'            => $this->slug,
 			'label'         => $this->name,
-			'title'         => "{$this->name} v{$this->version}",
+			'title'         => {$this->name},
 			'header'        => $this->name,
-			// 'parent'     => 'woocommerce',
-			// 'priority'   => 10,
-			// 'capability' => 'manage_options',
-			// 'icon'       => 'dashicons-wordpress',
-			// 'position'   => 25,
-			// 'topnav'	=> true,
 			'sections'      => [
 				'checkout-designer_basic'	=> [
 					'id'        => 'checkout-designer_basic',
 					'label'     => __( 'Basic Settings', 'checkout-designer' ),
 					'icon'      => 'dashicons-admin-tools',
-					// 'color'		=> '#4c3f93',
 					'sticky'	=> false,
 					'fields'    => [
-						// 'primary_color' => [
-						// 	'id'      => 'primary_color',
-						// 	'label'     => __( 'Primary Color', 'checkout-designer' ),
-						// 	'type'      => 'color',
-						// 	'desc'      => __( 'Pick a primary color.', 'checkout-designer' ),
-						// ],
-						// 'secondary_color' => [
-						// 	'id'      => 'secondary_color',
-						// 	'label'     => __( 'Secondary Color', 'checkout-designer' ),
-						// 	'type'      => 'color',
-						// 	'desc'      => __( 'Pick a secondary color.', 'checkout-designer' ),
-						// ],
 						'crypto_gateway' => [
 							'id'      => 'crypto_gateway',
 							'label'     => __( 'Crypto Gateway', 'checkout-designer' ),
 							'type'      => 'select',
 							'desc'      => __( 'Select a crypto gateway.', 'checkout-designer' ),
 							'options'   => $gateway_options,
-							'disabled'  => false, // true|false
-							'multiple'  => false, // true|false
+							'disabled'  => false,
+							'multiple'  => false,
 						],
 						'crypto_icon' => [
 							'id'      => 'crypto_icon',
@@ -83,7 +63,7 @@ class Settings extends Base {
 							'select_button'     => __( 'Select File', 'checkout-designer' ),
 							'desc'      => __( 'Upload crypto icon.', 'checkout-designer' ),
 							// 'class'     => '',
-							'disabled'  => false, // true|false
+							'disabled'  => false,
 						],
 						'checkout_heading' => [
 							'id'        => 'checkout_heading',
