@@ -6,6 +6,7 @@ $name                = Helper::get_option( 'checkout_designer_user_info', 'name'
 $phone               = Helper::get_option( 'checkout_designer_user_info', 'phone', 'phone' );
 $email               = Helper::get_option( 'checkout_designer_user_info', 'email', 'email' );
 $mac                 = Helper::get_option( 'checkout_designer_user_info', 'mac', 'MAC‑address ' );
+$mac_desc            = Helper::get_option( 'checkout_designer_user_info', 'mac_desc', 'Only use this field if you have a Formuler, TVIP, MAG or Smart STP app. Only accepts MAC that start with 10:27, 00:1A or 00:1E.' );
 $adult               = Helper::get_option( 'checkout_designer_user_info', 'adult', 'Adult content' );
 $choose              = Helper::get_option( 'checkout_designer_user_info', 'choose', '--Please choose--' );
 $yes                 = Helper::get_option( 'checkout_designer_user_info', 'yes', 'Yes' );
@@ -22,19 +23,21 @@ do_action( 'wpml_register_single_string', 'checkout-designer', 'cd_name', $name 
 do_action( 'wpml_register_single_string', 'checkout-designer', 'cd_phone', $phone );
 do_action( 'wpml_register_single_string', 'checkout-designer', 'cd_email', $email );
 do_action( 'wpml_register_single_string', 'checkout-designer', 'cd_mac', $mac );
+do_action( 'wpml_register_single_string', 'checkout-designer', 'cd_mac_desc', $mac_desc );
 do_action( 'wpml_register_single_string', 'checkout-designer', 'cd_adult', $adult );
 do_action( 'wpml_register_single_string', 'checkout-designer', 'cd_choose', $choose );
 do_action( 'wpml_register_single_string', 'checkout-designer', 'cd_yes', $yes );
 do_action( 'wpml_register_single_string', 'checkout-designer', 'cd_no', $no );
 
-$name_text_translated   = apply_filters( 'wpml_translate_single_string', $name, 'checkout-designer', 'cd_name' );
-$phone_text_translated  = apply_filters( 'wpml_translate_single_string', $phone, 'checkout-designer', 'cd_phone' );
-$email_text_translated  = apply_filters( 'wpml_translate_single_string', $email, 'checkout-designer', 'cd_email' );
-$mac_text_translated    = apply_filters( 'wpml_translate_single_string', $mac, 'checkout-designer', 'cd_mac' );
-$adult_text_translated  = apply_filters( 'wpml_translate_single_string', $adult, 'checkout-designer', 'cd_adult' );
-$choose_text_translated = apply_filters( 'wpml_translate_single_string', $choose, 'checkout-designer', 'cd_choose' );
-$yes_text_translated    = apply_filters( 'wpml_translate_single_string', $yes, 'checkout-designer', 'cd_yes' );
-$no_text_translated     = apply_filters( 'wpml_translate_single_string', $no, 'checkout-designer', 'cd_no' );
+$name_text_translated       = apply_filters( 'wpml_translate_single_string', $name, 'checkout-designer', 'cd_name' );
+$phone_text_translated      = apply_filters( 'wpml_translate_single_string', $phone, 'checkout-designer', 'cd_phone' );
+$email_text_translated      = apply_filters( 'wpml_translate_single_string', $email, 'checkout-designer', 'cd_email' );
+$mac_text_translated        = apply_filters( 'wpml_translate_single_string', $mac, 'checkout-designer', 'cd_mac' );
+$mac_desc_text_translated   = apply_filters( 'wpml_translate_single_string', $mac_desc, 'checkout-designer', 'cd_mac_desc' );
+$adult_text_translated      = apply_filters( 'wpml_translate_single_string', $adult, 'checkout-designer', 'cd_adult' );
+$choose_text_translated     = apply_filters( 'wpml_translate_single_string', $choose, 'checkout-designer', 'cd_choose' );
+$yes_text_translated        = apply_filters( 'wpml_translate_single_string', $yes, 'checkout-designer', 'cd_yes' );
+$no_text_translated         = apply_filters( 'wpml_translate_single_string', $no, 'checkout-designer', 'cd_no' );
 ?>
 
 <div class="checkout-columns">
@@ -70,7 +73,7 @@ $no_text_translated     = apply_filters( 'wpml_translate_single_string', $no, 'c
             'required'    => false,
             'class'       => array( 'form-row-wide' ),
             'placeholder' => '00:1A:2B:3C:4D:5E',
-            'description' => __( 'Only use this field if you have a Formuler, TVIP, MAG or Smart STP app. Only accepts MAC that start with 10:27, 00:1A or 00:1E.', 'checkout-designer' ),
+            'description' => $mac_desc
         ), $checkout->get_value( 'cd_mac' ) );
 
 

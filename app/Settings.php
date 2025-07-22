@@ -74,6 +74,13 @@ class Settings extends Base {
 							'desc'      => __( 'This is MAC text field.', 'checkout-designer' ),
 						 	'default'   => 'MAC‑address(optional)'
 						],
+						'mac_desc' => [
+							'id'        => 'mac_desc',
+							'label'     => __( 'MAC desc text', 'checkout-designer' ),
+							'type'      => 'textarea',
+							'desc'      => __( 'This is MAC desc text field.', 'checkout-designer' ),
+						 	'default'   => 'Only use this field if you have a Formuler, TVIP, MAG or Smart STP app. Only accepts MAC that start with 10:27, 00:1A or 00:1E.'
+						],
 						'adult' => [
 							'id'        => 'adult',
 							'label'     => __( 'Adult text', 'checkout-designer' ),
