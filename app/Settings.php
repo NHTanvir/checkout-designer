@@ -40,9 +40,24 @@ class Settings extends Base {
 			'title'         => {$this->name},
 			'header'        => $this->name,
 			'sections'      => [
-				'checkout-designer_basic'	=> [
-					'id'        => 'checkout-designer_basic',
-					'label'     => __( 'Basic Settings', 'checkout-designer' ),
+				'checkout_designer_user_info'	=> [
+					'id'        => 'checkout_designer_table',
+					'label'     => __( 'Table texts', 'checkout-designer' ),
+					'icon'      => 'dashicons-admin-tools',
+					'sticky'	=> false,
+					'fields'    => [
+						'checkout_heading' => [
+							'id'        => 'checkout_heading',
+							'label'     => __( 'checkout Heading text', 'checkout-designer' ),
+							'type'      => 'text',
+							'desc'      => __( 'This is checkout Heading text field.', 'checkout-designer' ),
+						 	'default'   => 'Varukorg'
+						]
+					]
+				],
+				'checkout_designer_table'	=> [
+					'id'        => 'checkout_designer_table',
+					'label'     => __( 'Table texts', 'checkout-designer' ),
 					'icon'      => 'dashicons-admin-tools',
 					'sticky'	=> false,
 					'fields'    => [

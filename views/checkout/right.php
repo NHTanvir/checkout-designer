@@ -5,7 +5,7 @@ use Codexpert\CheckoutDesigner\Helper;
     <h3>
         <?php
     
-        $payment_heading = Helper::get_option( 'checkout-designer_basic', 'payment_heading', 'Betalning' );
+        $payment_heading = Helper::get_option( 'checkout_designer_table', 'payment_heading', 'Betalning' );
         do_action( 'wpml_register_single_string', 'checkout-designer', 'payment_heading', $payment_heading );
         echo esc_html( apply_filters( 'wpml_translate_single_string', $payment_heading, 'checkout-designer', 'payment_heading' ) );
         ?>
@@ -13,7 +13,7 @@ use Codexpert\CheckoutDesigner\Helper;
     <div class="payment-methods-section">
         <h6 class="method">
             <?php
-            $method_label = Helper::get_option( 'checkout-designer_basic', 'method_label', 'Metod' );
+            $method_label = Helper::get_option( 'checkout_designer_table', 'method_label', 'Metod' );
             do_action( 'wpml_register_single_string', 'checkout-designer', 'method_label', $method_label );
             echo esc_html( apply_filters( 'wpml_translate_single_string', $method_label, 'checkout-designer', 'method_label' ) );
             ?>

@@ -3,13 +3,13 @@ use Codexpert\CheckoutDesigner\Helper;
 
 $selected_payment_method = WC()->session->get( 'chosen_payment_method' );
 
-$checkout_heading    = Helper::get_option( 'checkout-designer_basic', 'checkout_heading', 'Varukorg' );
-$addon_heading       = Helper::get_option( 'checkout-designer_basic', 'addon_heading', 'Valfritt Extra konton' );
-$extra_accounts_text = Helper::get_option( 'checkout-designer_basic', 'extra_accounts_text', 'Du kan lägga till hur många extra konton du vill.' );
-$add_button_text     = Helper::get_option( 'checkout-designer_basic', 'add_button_text', 'Lägg till' );
-$payment_heading     = Helper::get_option( 'checkout-designer_basic', 'payment_heading', 'Betalning' );
-$method_label        = Helper::get_option( 'checkout-designer_basic', 'method_label', 'Metod' );
-$table_heading     	 = Helper::get_option( 'checkout-designer_basic', 'table_heading', 'Fakturauppgifter' );
+$checkout_heading    = Helper::get_option( 'checkout_designer_table', 'checkout_heading', 'Varukorg' );
+$addon_heading       = Helper::get_option( 'checkout_designer_table', 'addon_heading', 'Valfritt Extra konton' );
+$extra_accounts_text = Helper::get_option( 'checkout_designer_table', 'extra_accounts_text', 'Du kan lägga till hur många extra konton du vill.' );
+$add_button_text     = Helper::get_option( 'checkout_designer_table', 'add_button_text', 'Lägg till' );
+$payment_heading     = Helper::get_option( 'checkout_designer_table', 'payment_heading', 'Betalning' );
+$method_label        = Helper::get_option( 'checkout_designer_table', 'method_label', 'Metod' );
+$table_heading     	 = Helper::get_option( 'checkout_designer_table', 'table_heading', 'Fakturauppgifter' );
 ?>
 
 <div class="checkout-columns">
@@ -160,7 +160,7 @@ $table_heading     	 = Helper::get_option( 'checkout-designer_basic', 'table_hea
         <br><br>
 
         <?php if ( $selected_payment_method ) :
-            $crypto_gateway = Helper::get_option( 'checkout-designer_basic', 'crypto_gateway' );
+            $crypto_gateway = Helper::get_option( 'checkout_designer_table', 'crypto_gateway' );
             if ( $crypto_gateway === $selected_payment_method ) :
                 ?>
                 <div class="total-section">

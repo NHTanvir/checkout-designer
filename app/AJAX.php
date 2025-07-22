@@ -35,8 +35,8 @@ class AJAX extends Base {
 	public function update_cart_totals_on_payment_method_change() {
 
 		$selected_payment_method 	= sanitize_text_field( $_POST['payment_method'] );
-		$crypto_gateway 			= Helper::get_option( "checkout-designer_basic", 'crypto_gateway' );
-		$table_heading     			= Helper::get_option( 'checkout-designer_basic', 'table_heading', 'Fakturauppgifter' );
+		$crypto_gateway 			= Helper::get_option( "checkout_designer_table", 'crypto_gateway' );
+		$table_heading     			= Helper::get_option( 'checkout_designer_table', 'table_heading', 'Fakturauppgifter' );
 
 		if ( $selected_payment_method ) {
 			WC()->session->set( 'chosen_payment_method', $selected_payment_method );

@@ -2,14 +2,14 @@
 use Codexpert\CheckoutDesigner\Helper;
 
 $selected_payment_method = WC()->session->get('chosen_payment_method');
-$crypto_gateway          = Helper::get_option('checkout-designer_basic', 'crypto_gateway', 'crypto_gateway_slug');
-$misc_fee_title          = Helper::get_option('checkout-designer_basic', 'misc_fee_title', 'Total avgifter');
-$misc_fee_desc           = Helper::get_option('checkout-designer_basic', 'misc_fee_desc', 'Avgift beroende på börs:');
-$misc_fee_amount         = Helper::get_option('checkout-designer_basic', 'misc_fee_amount', '100-400 SEK');
-$crypto_fee_title        = Helper::get_option('checkout-designer_basic', 'crypto_fee_title', 'Kortavgift');
-$crypto_fee_amount       = Helper::get_option('checkout-designer_basic', 'crypto_fee_amount', '10%');
-$crypto_message_success  = Helper::get_option('checkout-designer_basic', 'crypto_message_success', 'När du betalar med Krypto så skickar du valfri valuta från valfri plånbok eller från någon utav de kryptobörserna vi har guider för.');
-$crypto_message_warning  = Helper::get_option('checkout-designer_basic', 'crypto_message_warning', 'OBS! Du ansvarar för avgifterna som plånboken/börsen du skickar ifrån tar. Skickar du ett för lågt belopp så går din beställning inte igenom!');
+$crypto_gateway          = Helper::get_option('checkout_designer_table', 'crypto_gateway', 'crypto_gateway_slug');
+$misc_fee_title          = Helper::get_option('checkout_designer_table', 'misc_fee_title', 'Total avgifter');
+$misc_fee_desc           = Helper::get_option('checkout_designer_table', 'misc_fee_desc', 'Avgift beroende på börs:');
+$misc_fee_amount         = Helper::get_option('checkout_designer_table', 'misc_fee_amount', '100-400 SEK');
+$crypto_fee_title        = Helper::get_option('checkout_designer_table', 'crypto_fee_title', 'Kortavgift');
+$crypto_fee_amount       = Helper::get_option('checkout_designer_table', 'crypto_fee_amount', '10%');
+$crypto_message_success  = Helper::get_option('checkout_designer_table', 'crypto_message_success', 'När du betalar med Krypto så skickar du valfri valuta från valfri plånbok eller från någon utav de kryptobörserna vi har guider för.');
+$crypto_message_warning  = Helper::get_option('checkout_designer_table', 'crypto_message_warning', 'OBS! Du ansvarar för avgifterna som plånboken/börsen du skickar ifrån tar. Skickar du ett för lågt belopp så går din beställning inte igenom!');
 
 
 do_action( 'wpml_register_single_string', 'checkout-designer', 'misc_fee_title', $misc_fee_title );

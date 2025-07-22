@@ -43,8 +43,8 @@ class Front extends Base {
 
 		wp_enqueue_script( $this->slug, plugins_url( "/assets/js/front{$min}.js", Checkout_Designer ), [ 'jquery' ], time(), true );
 
-		$crypto_button_text = Helper::get_option( 'checkout-designer_basic', 'crypto_button_text', 'Betala med krypto' );
-		$card_button_text   = Helper::get_option( 'checkout-designer_basic', 'card_button_text', 'Betala med kort' );
+		$crypto_button_text = Helper::get_option( 'checkout_designer_table', 'crypto_button_text', 'Betala med krypto' );
+		$card_button_text   = Helper::get_option( 'checkout_designer_table', 'card_button_text', 'Betala med kort' );
 
 		do_action( 'wpml_register_single_string', 'checkout-designer', 'crypto_button_text', $crypto_button_text );
 		do_action( 'wpml_register_single_string', 'checkout-designer', 'card_button_text', $card_button_text );
@@ -70,7 +70,7 @@ class Front extends Base {
 
 	public function add_payment_method_class( $classes ) {
 		$selected_payment_method 		= WC()->session->get('chosen_payment_method');
-		$cyrpto_gateway               	= Helper::get_option( "checkout-designer_basic", 'crypto_gateway' );
+		$cyrpto_gateway               	= Helper::get_option( "checkout_designer_table", 'crypto_gateway' );
 		if ( $selected_payment_method == $cyrpto_gateway ) {
 			$classes[] = 'payment-method-crypto';
 		}
@@ -81,7 +81,7 @@ class Front extends Base {
 	}
 
 	public function payment_gateway_icon( $icon, $gateway_id ) {
-		$crypto_gateway = Helper::get_option( 'checkout-designer_basic', 'crypto_gateway' );
+		$crypto_gateway = Helper::get_option( 'checkout_designer_table', 'crypto_gateway' );
 		$settings       = get_option( "woocommerce_{$gateway_id}_settings", [] );
 		$title          = isset( $settings['title'] ) ? esc_html( $settings['title'] ) : '';
 		$description    = isset( $settings['description'] ) ? esc_html( $settings['description'] ) : '';
